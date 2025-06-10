@@ -1,0 +1,191 @@
+:root {
+  --red: rgb(180, 27, 0);
+  --magenta: #ff46ec;
+  --lavender-bg: #ad28ff;
+  --blue-bg: #0680a5;
+  --green-bg: #02830a;
+  --lime: #48faa7;
+  --tomato: rgb(252, 149, 131);
+  --lavender: #e1c1ff;
+  --blue: rgb(135, 193, 212);
+  --code-bg: #3a3f43;
+  --code-border: #4f5e63;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  background: radial-gradient(in oklch, #065fb6, #f84bff, #1850b4);
+  background-size: cover;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  font-size: 36px;
+}
+
+code {
+  position: relative;
+
+  &.html::before {
+    content: 'HTML';
+    display: block;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg in oklch, var(--magenta) 20%, var(--blue));
+    position: absolute;
+    color: black;
+    font-family: 'IBM Plex Mono';
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.75rem;
+    top: -1rem;
+    right: 1rem;
+  }
+
+  &.css::before {
+    content: 'CSS';
+    display: block;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg in oklab, var(--lime), yellow);
+    position: absolute;
+    color: black;
+    font-family: 'IBM Plex Mono';
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.75rem;
+    top: -1rem;
+    right: 1rem;
+  }
+}
+
+pre {
+  text-align: left;
+  padding: 0 1rem;
+  position: relative;
+}
+
+::selection {
+  background-color: black;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: var(--lime);
+}
+
+h1,
+blockquote {
+  font-family: 'Londrina Solid', sans-serif;
+  max-width: 20ch;
+  font-size: 8rem;
+  line-height: 1.1;
+  color: var(--lime);
+  text-shadow: 0 0 15px blueviolet;
+}
+
+h1:hover {
+  animation: pulse 2s ease infinite forwards;
+}
+
+blockquote {
+  margin: 0;
+  font-size: 7rem;
+}
+
+code,
+.display,
+kbd {
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 0 0.5rem;
+  border-radius: 10px;
+  background: var(--code-bg);
+  border-radius: 0.3em;
+  border: 2px solid var(--code-border);
+  font-size: 80%;
+}
+
+style:focus-visible {
+  outline: 2px dashed white;
+}
+
+@font-face {
+  font-family: 'FontWithASyntaxHighlighter';
+  src: 
+    url('../assets/FontWithASyntaxHighlighter-Regular.woff2') 
+    format('woff2');
+  ;
+}
+
+/* https://blog.glyphdrawing.club/font-with-built-in-syntax-highlighting/ */
+/* https://monaspace.githubnext.com/ */
+/* https://codepen.io/daviddarnes/pen/poXpaLB?editors=1100 */
+code, pre, style.display {
+  font-family: "FontWithASyntaxHighlighter", monospace;
+
+  &::selection {
+    background-color: black;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--lime);
+  }
+}
+
+a {
+  color: var(--lime);
+}
+
+h2 {
+  font-weight: 400;
+  margin: 2rem 0;
+  font-family: 'Londrina Solid', sans-serif;
+  font-size: 5rem;
+  color: var(--lavender);
+}
+
+h2 code {
+  color: white;
+  background: var(--magenta);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  font-size: 3rem;
+}
+
+ol {
+  text-align: left;
+  font-size: 3rem;
+}
+
+input[type=checkbox] {
+  cursor: pointer;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+li.indented {
+  font-size: 75%;
+  margin-left: 3rem;
+}
+
+strong {
+  color: var(--magenta);
+}
+
+p, h3 {
+  max-width: 90%;
+  justify-self: center;
+}
+
+baseline-status {
+    background: var(--code-bg);
+    border-color: var(--code-border);
+
+     + baseline-status {
+        margin-top: 1.5rem;
+     }
+}

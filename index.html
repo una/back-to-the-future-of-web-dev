@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back to the future: of web development | @una</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+
+</head>
+<body>
+    <div class="title fun-font">Back to the future: of web development</div>
+    <div class="slide-container">
+          <div class="slides" >
+              <div id="intro-1" class="slide center">
+                  <a class="link-only" href="#intro" accesskey='1'></a>
+                  <h1 style="margin-bottom: 0" sclass="capitalize">Back to the future:</h1>
+                  <h2 style="color: var(--lime); margin-bottom: 6rem">of web development</h2>
+                  <p class="intro fun-font">Una Kravets <span class="red">&hearts;</span> una.im <br> Google Chrome DevRel</p>
+              </div>
+
+              <div  class="slide center">
+                <blockquote>CSS is getting <strong>much</strong> more powerful & declarative</blockquote>
+              </div>
+
+              <div  class="slide center">
+                <blockquote style="color: magenta">⚠️ NEW STUFF ⚠️</blockquote>
+              </div>
+
+              <div class="slide center">
+                <h2>A note on browser support:</h2>
+                <p class="hover">Standards-track APIs</p>
+              </div>
+
+        <div class="slide center hide-code">
+          <input type="checkbox" name="demo-1" class="target" />
+          <div class="two-by">
+<code style="font-size: 1.5rem" class="html"><pre>&lt;select name="version-select" id="version-select"
+  &lt;button&gt;
+    &lt;selectedcontent&gt;&lt;/selectedcontent&gt;
+  &lt;/button&gt;
+  &lt;option value="core"&gt;
+    &lt;div class="icon"&gt;
+      &lt;span class="material-symbols"&gt;hub&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="meta"&gt;
+      &lt;div class="title"&gt;UnAI Core&lt;/div&gt;
+      &lt;div class="subtitle"&gt;Balanced speed...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/option&gt;
+  &lt;option value="max"&gt;
+  ...</pre></code>
+            <iframe class="mini-phone" src="https://codepen.io/una/debug/jEPbZjr/98809ceccc64a8b6e0da7f2597c8931c" frameborder="0" ></iframe>
+          </div>
+        </div>
+
+        <div class="slide center hide-code">
+          <input type="checkbox" name="demo-2" class="target" />
+<div class="two-by">
+<code style="font-size: 1.5rem" class="html"><pre>&lt;div class="comments"&gt;
+  &lt;a interesttarget="commenters" href="#"&gt;
+    24 comments
+  &lt;/a&gt;
+&lt;/div&gt;
+    
+&lt;div id="commenters" popover="hint"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Jenny Smith&lt;/li&gt;
+    &lt;li&gt;...&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</pre></code>
+            <iframe class="mini-phone" style="aspect-ratio:2/3.2" src="https://codepen.io/una/debug/JoooGBo" frameborder="0" ></iframe>
+          </div>
+        </div>
+
+          <div class="slide center hide-code">
+          <input type="checkbox" name="demo-3" class="target" />
+                <div class="two-by">
+                  <div class="code-side">
+                    <code class="html" style="font-size: 1.5rem"><pre>&lt;div class="star-rating" data-rating="1.8"&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+  &lt;/div&gt;</pre></code>
+                      <code class="css" style="font-size: 1.3rem"><pre>.star-rating {
+    --percent-fill: calc(attr(data-rating type(<number>)) * 20%);
+
+    figure {
+      /*  hard breakpoint gradient background  */
+      background: 
+          linear-gradient(to right, 
+          gold var(--percent-fill), 
+          transparent var(--percent-fill));
+
+      /*  star mask  */
+      mask-image: url('data:image/svg+xml,...');
+    }
+
+    &::after {
+      content: attr(data-rating);
+    }
+  }</pre></code>
+              </div>
+
+              <iframe class="mini-phone" src="https://codepen.io/una/debug/MYwaVbE/357a134c0765d7afcf85b301f97e7f60" frameborder="0" ></iframe>
+            </div>
+          </div>
+
+              <div class="slide center">
+                <blockquote>The most exciting things happening in web development right now are happening in <strong>CSS & HTML.</strong></blockquote>
+              </div>
+
+              <div class="slide center">
+                <blockquote>The best way to <strong>level up</strong> your web development skillset is to know what's possbile with <strong>modern UI capabilities.</strong></blockquote>
+              </div>
+
+              <div class="slide center">
+                <a href="#">una.im/io-25</a>
+              </div>
+
+
+              <div class="slide center">
+                <h2>Why care about CSS & UI?</h2>
+                <ol>
+                  <li>🧮 Separate logic and styling</li>
+                  <li class="animate-forward">🗑️ Reduce 3P dependancies</li>
+                  <li class="animate-forward">🏗️ Reduce maintenance costs & complexity</li>
+                  <li class="animate-forward">⌨️ Make it easier to build accessible interfaces</li>
+                  <li class="animate-forward">🚀 Better performance off the main thread</li>
+                  <li class="animate-forward">🧖🏻‍♂️ Build faster, make your life easier</li>
+                </ol>
+              </div>
+
+              <div class="slide center">
+                <style class="display css" style="white-space: pre-wrap;" contenteditable>.slide {
+  container-type: scroll-state;
+  
+  .animate-forward {
+    opacity: 0;
+  }
+
+  @container scroll-state(snapped: x) {
+    .animate-forward {
+      animation: fade-in 0.5s ease-in forwards;
+      animation-delay: calc(sibling-index() * 5s);
+    }
+  }
+}</style>
+              </div>
+
+              <div class="slide center">
+                <h2>Built-in syntax highlighting</h2>
+                <ul>
+                  <li>No heavy libraries</li>
+                  <li>No added span tags</li>
+                  <li>Supports textarea & dynamic editing</li>
+                </ul>
+                <a href="https://blog.glyphdrawing.club/font-with-built-in-syntax-highlighting/">blog.glyphdrawing.club</a>
+              </div>
+
+              <div class="slide adventure">
+                <div style="display: grid; grid-template-columns: 1fr 200px; justify-items: self-end; justify-self: center;">
+                  <h2 style="font-size: 4rem;">Let's go on an adventure...</h2>
+                  <img src="img/delorean.png" alt="">
+                </div>
+                <div class="three-by">
+                  <div class="option">
+                    <a href="#one">
+                      <iframe class="mini-phone" src="https://codepen.io/una/debug/pvJbRBN" frameborder="0" ></iframe>
+                      <p>Customizable select</p>
+                    </a>
+                  </div>
+                  <div class="option">
+                    <a href="#two">
+                      <iframe class="mini-phone" src="https://codepen.io/una/debug/JoooGBo" frameborder="0" ></iframe>
+                      <p>Layered UI</p>
+                    </a>
+                  </div>
+                  <div class="option">
+                    <a href="#three">
+                      <iframe class="mini-phone" src="https://codepen.io/una/debug/myJOjQx" frameborder="0" ></iframe>
+                      <p>No-JS carousel</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Demo 1: Select -->
+              <div class="slide center stop">
+                <a id="one"></a>
+                <h2>Customizable select</h2>
+              </div>
+
+              <div class="slide center">
+                <h2>Recipe:</h2>
+                <ol>
+                  <li>Customizable select menu* <i>(optional)</i></li>
+                  <li>Scroll-driven animation</li>
+                  <li>CSS trigonometric functions</li>
+                  <li>Registered custom properties</li>
+                  <li>Bonus: CSS carousel markers</li>
+                </ol>
+              </div>
+
+              <div class="slide center">
+                <h2>Customizable select</h2>
+                <div class="two-by">
+  <code style="font-size: 1.5rem"><pre>select,
+select::picker(select) {
+    appearance: base-select;
+}</pre></code>
+              <iframe class="mini-phone" style="height: 500px; background: white;"  src="https://codepen.io/una/debug/OJegRzB" frameborder="0"></iframe>
+              </div>
+            </div>
+
+            <div class="slide center">
+          <div class="two-by">
+<code style="font-size: 1.5rem" class="html"><pre>&lt;select name="version-select" id="version-select"
+  &lt;button&gt;
+    &lt;selectedcontent&gt;&lt;/selectedcontent&gt;
+  &lt;/button&gt;
+  &lt;option value="core"&gt;
+    &lt;div class="icon"&gt;
+      &lt;span class="material-symbols"&gt;hub&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="meta"&gt;
+      &lt;div class="title"&gt;UnAI Core&lt;/div&gt;
+      &lt;div class="subtitle"&gt;Balanced speed...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/option&gt;
+  &lt;option value="max"&gt;
+  ...</pre></code>
+            <iframe class="mini-phone" src="https://codepen.io/una/debug/jEPbZjr/98809ceccc64a8b6e0da7f2597c8931c" frameborder="0" ></iframe>
+          </div>
+        </div>
+
+            <div class="slide center">
+              <iframe style="width: 1390px;
+    height: 780px;"src="https://codepen.io/una/pen/pvJbRBN" frameborder="0"></iframe>
+            </div>
+
+              <div class="slide center">
+                <h2>Scroll-driven animations</h2>
+              <div class="two-by">
+<code style="font-size: 1.5rem"><pre>
+@keyframes appear {
+  from { 
+    opacity: 0;
+    transform: translate(0px, 50px);
+  }
+
+  to {
+    opacity: 1; 
+    transform: translate(0px, 0px);
+  }
+}
+
+li {
+  animation: appear linear both;
+  animation-timeline: view();
+  animation-range: entry 0 cover 25%;
+}
+</pre></code>
+            <iframe class="mini-phone" style="height: 500px" src="https://codepen.io/una/debug/zYQPQYj" frameborder="0" ></iframe>
+          </div>
+        </div>
+
+            <div class="slide center">
+              <h2>Progressive enhancement 💜💜💜</h2>
+            </div>
+
+            <div class="slide center">
+              <div class="two-by">
+<code style="font-size: 1.5rem"><pre>@supports (animation-timeline: scroll()) {
+  html {
+    scroll-timeline-name: --root-scroll;
+  }
+
+  @keyframes fade-in {
+    from { 
+      opacity: 0;
+      display: none;
+    }
+    to { 
+      opacity: 1;
+      display: block;
+    }
+  }
+
+  a {
+    animation: fade-in auto linear both;
+    animation-timeline: --root-scroll;
+    animation-range: 20% 30%;
+  }
+}</pre></code>
+            <iframe class="mini-phone" style="height: 100%"  src="https://codepen.io/una/debug/qBvQOzQ" frameborder="0"></iframe>
+          </div>
+            </div>
+
+            <div class="slide center">
+              <iframe style="width: 1390px;
+    height: 780px;"src="https://codepen.io/una/pen/pvJbRBN" frameborder="0"></iframe>
+            </div>
+
+              <div class="slide center">
+                <a class="link-only" href="#three">Carousel features</a>
+              </div>
+
+              <!-- Demo 2 -->
+              <div class="slide center stop">
+                <a id="two"></a>
+                <h2>Layered UI</h2>
+              </div>
+
+              <div class="slide center">
+                <h2>Recipe:</h2>
+                <ol>
+                  <li>Popover=hint</li>
+                  <li>Interest invokers</li>
+                  <li>Anchor positioning</li>
+                  <li>Repositioning logic</li>
+                </ol>
+              </div>
+
+              <div class="slide center">
+                
+                <div class="two-by"><div style="display: grid; gap: 2rem;">
+  <code class="html" style="font-size: 1.5rem"><pre>&lt;button popovertarget="my-tooltip"&gt;
+  &lt;p&gt;?&lt;/p&gt;
+&lt;/button&gt;
+
+&lt;div id="my-tooltip" class="tooltip" popover&gt;
+  &lt;p&gt;I am a tooltip with more information.&lt;p&gt;
+&lt;/div&gt;</pre></code>
+<code class="css" style="font-size: 1.5rem">
+  <pre>#my-tooltip {
+  inset: auto;
+  position-area: top;
+  position-try: flip-block;
+}
+</pre>
+</code></div>
+              <iframe class="mini-phone resize" src="https://codepen.io/una/debug/YPXewpJ" frameborder="0"></iframe>
+              </div>
+            </div>
+
+            <div class="slide center">
+              <a>anchor-tool.com</a>
+              <iframe style="color-scheme: dark; width: 900px; height: 600px;" src="https://anchor-tool.com" frameborder="0"></iframe>
+            </div>
+
+            <div class="slide center">
+              <table>
+<thead>
+<tr>
+<th></th>
+<th><code>popover=auto</code></th>
+<th><code>popover=manual</code></th>
+<th><code>popover=hint</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Light dismiss (via click-away or <code>esc</code> key)</td>
+<td>✅ Yes</td>
+<td>🚫 No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Closes other <code>popover=auto</code> elements when opened</td>
+<td>✅ Yes</td>
+<td>🚫 No</td>
+<td>🚫 No</td>
+</tr>
+<tr>
+<td>Closes other <code>popover=hint</code> elements when opened</td>
+<td>✅ Yes</td>
+<td>🚫 No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Closes other <code>popover=manual</code> elements when opened</td>
+<td>🚫 No</td>
+<td>🚫 No</td>
+<td>🚫 No</td>
+</tr>
+<tr>
+<td>Can open and close popover with JS (<code>showPopover()</code> or <code>hidePopover()</code>)</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Default focus management for next tab stop</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Can hide or toggle with <code>popovertargetaction</code></td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Can open within parent <code>popover</code> to keep parent open</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+</tbody>
+</table>
+
+            </div>
+
+            <div class="slide center">
+              <iframe style="width:1300px; height: 780px" src="https://codepen.io/una/pen/JoooGBo" frameborder="0"></iframe>
+            </div>
+
+              
+              <!-- Demo 3: Carousel -->
+              <div class="slide center stop">
+                <a id="three"></a>
+                <h2>No-JS Carousel</h2>
+              </div>
+
+              <div class="slide center">
+                <h2>Recipe:</h2>
+                <ol>
+                  <li>Scroll buttons</li>
+                  <li>Scroll markers</li>
+                  <li>Scroll-state queries</li>
+                  <li>Anchor positioning</li>
+                </ol>
+              </div>
+
+              <div class="slide center">
+                <a>chrome.dev/carousel-configurator</a>
+                <iframe style="color-scheme: dark; width: 900px; height: 600px;" src="https://chrome.dev/carousel-configurator" frameborder="0"></iframe>
+            </div>
+
+              <div class="slide center">
+                <iframe style="width:1300px; height: 780px" src="https://codepen.io/una/pen/myJOjQx" frameborder="0"></iframe>
+              </div>
+
+<div class="slide center">
+                
+                <div class="two-by">
+
+<code class="css"><pre>li {
+  container-type: scroll-state;
+  scroll-snap-align: center;
+  
+  div {
+    scale: 0.8;
+    transition: scale 0.3s ease;
+    
+    @container scroll-state(snapped: x) {
+      scale: 1;
+    }
+  }
+}</pre>
+</code>
+              <iframe class="mini-phone resize" src="https://codepen.io/una/debug/myyxrqw/" frameborder="0"></iframe>
+              </div>
+            </div>
+
+            <div class="slide center">
+              <iframe style="width:1300px; height: 780px" src="https://codepen.io/una/debug/myJOjQx" frameborder="0"></iframe>
+            </div>
+
+
+
+              <!-- End Demo Bits-->
+
+    
+
+
+
+              <div class="slide center stop">
+                <h1>Do I need to know all the things?</h1>
+              </div>
+              
+
+              <div class="slide center">
+                <h1>Reach for native-first</h1>
+                <h2>universal APIs</h2>
+              </div>
+              
+              <!-- <div class="slide center">
+                <a class="link-only" href="#this-prezo" accesskey="8"></a>
+                  <blockquote>🤫 This presentation is fully built with vanilla CSS & HTML*</blockquote>
+                <p>*with some iframes for demos due to laziness</p>
+              </div>
+
+              <div class="slide at-top">
+                <h2 style="font-size: 2.5rem"><code>&lt;style&gt;</code> with <code>display:block</code> and <code>contenteditable</code></h2>
+                <style class="display" style="font-size: 1.5rem; white-space: pre-wrap;" contenteditable>body {
+//
+}</style>
+              </div>
+
+              <div class="slide at-top">
+                <h2 style="font-size: 2.5rem">Smooth scroll with <code>scroll-snap</code></h2>
+                <style class="display" style="white-space: pre-wrap;" contenteditable>.slides {
+scroll-behavior: smooth;
+scroll-snap-type: x mandatory;
+}</style>
+              </div>
+
+              <div class="slide at-top">
+                <a class="link-only" href="#end" accesskey="9"></a>
+                <h2 style="font-size: 2.5rem">Navigation with HTML <code>accesskey</code></h2>
+                <ul style="text-align: left; gap: 1rem; display: grid;">
+                  <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>1</kbd> = Title</li>
+                  <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>2</kbd> = Scroll-driven animations</li>
+                  <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>3</kbd> = Popover API</li>
+                  <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>4</kbd> = Anchor positioning</li>
+                  <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>5</kbd> = select</li>
+                  <li>...</li>
+                  <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>e</kbd> = This slide</li>
+                </ul>
+              </div> -->
+<!-- 
+              <div class="slide center">
+                <h2>Another cool thing...</h2>
+                <blockquote>CSS & HTML work in every framework</blockquote>
+              </div> -->
+
+              <div class="slide center">
+                <blockquote>No dependancies</blockquote>
+              </div>
+
+              
+            <div class="slide center">
+                <blockquote>The best way to <strong>level up</strong> your web development skillset is to get good at <strong>CSS and HTML</strong></blockquote>
+            </div>
+
+            <div class="slide center">
+              <blockquote>Leverage the power of the browser</blockquote>
+           </div>
+
+            <div class="slide center">
+              <blockquote>Write once, works everywhere. No download needed.</blockquote>
+            </div>
+
+            <div>
+              -- image from Render ATL page where it makes you download an app for the schedule --
+            </div>
+
+            <div class="slide center">
+              <blockquote><strong>Raise your expectations</strong> for the web platform.</blockquote>
+            </div>
+
+            <div class="slide center">
+              <blockquote>Stay in the know</blockquote>
+              <br>
+              <h2 class="callout-link">web.dev</h2>
+              <h2 class="callout-link">developer.chrome.com</h2>
+            </div>
+
+            <div id="slide-end" class="slide at-top">
+              <a class="link-only" href="#end" accesskey="0"></a>
+              <h1 style="margin: 2rem auto 10rem;">Thank you for joining me!</h1>
+              <div class="two-by" style="text-align: left; width: 90%; margin: 0 auto; align-items: start; gap: 3rem">
+                <div class="side">
+                    <h2 style="border-bottom: 5px solid var(--lavender);     width: max-content;">Personal</h3>
+                    <ul class="links end-links">
+                    <li>Twitter: <span>@una</span></li>
+                    <li>Blusesky: <span>una.im</span></li>
+                    <li>Website: <span>una.im</span> (blog)</li>
+                  </ul>
+                </div>
+                <div class="side">
+                  <h2 style="border-bottom: 5px solid var(--lavender);     width: max-content;">Chrome DevRel</h3>
+                  <ul class="links end-links">
+                    <li>New: <span>developer.chrome.com</span></li>
+                    <li>Stable features: <span>web.dev</span></li>
+                  </ul>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+      </div>
+    <div class="twitter fun-font">@una</div>
+</body>
+</html>
