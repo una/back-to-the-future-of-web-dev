@@ -430,3 +430,92 @@ table {
     background-color: #334;
   }
 }
+
+.rotate-in {
+  opacity: 0;
+  rotate: 0deg; 
+
+  @container scroll-state(snapped: x) {
+    opacity: 1;
+    rotate: var(--angle);
+    transition: rotate 1s ease, opacity 1s ease;
+  }
+}
+
+.buttons-visual {
+  font-family: "Material Symbols Outlined";
+
+  .left::after {
+    content: "arrow_back_ios" / "Scroll Left";
+    position: absolute;
+    left: 5rem;
+    top: 40%;
+    font-size: 200px;
+    color: var(--lime);
+  }
+
+  .right::after {
+    content: "arrow_forward_ios" / "Scroll Right";
+    position: absolute;
+    right: 2rem;
+    top: 40%;
+    font-size: 200px;
+    color: var(--lime);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: var(--scale-to, 1.5);
+  }
+}
+
+.highlight-arrows {
+  position: fixed;
+  border: 2px solid white;
+  width: 5rem;
+  height: 3.4rem;
+  border-radius: 100% 50%;
+  position-anchor: --slides;
+  left: anchor(
+left);
+  top: anchor(
+bottom);
+  margin-left: -1rem;
+  animation: pulse 1s ease-out infinite alternate;
+  box-shadow: 0px 0px 30px var(--magenta);
+  display: none;
+  pointer-events: none;
+
+  @container scroll-state(snapped: x) {
+    display: block;
+  }
+}
+
+.highlight-markers {
+  --scale-to: 1.2;
+  position: fixed;
+  border: 2px solid white;
+  width: 33rem;
+  height: 2rem;
+  margin-top: 0.8rem;
+  margin-left: -16rem;
+  border-radius: 9rem;
+  position-anchor: --slides;
+  left: anchor(center);
+  top: anchor(bottom);
+  animation: pulse 1.2s ease-out infinite alternate;
+  display: none;
+  pointer-events: none;
+
+  @container scroll-state(snapped: x) {
+    display: block;
+  }
+}
+
+.p-list p {
+  margin: 1rem;
+}

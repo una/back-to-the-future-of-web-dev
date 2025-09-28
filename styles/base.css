@@ -58,6 +58,20 @@ code {
     top: -1rem;
     right: 1rem;
   }
+
+  &.js::before {
+    content: 'JS';
+    display: block;
+    font-size: 1.2rem;
+    background: linear-gradient(15deg in oklab, orange, rgb(245 90 64));
+    position: absolute;
+    color: black;
+    font-family: 'IBM Plex Mono';
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.75rem;
+    top: -1rem;
+    right: 1rem;
+  }
 }
 
 pre {
@@ -88,7 +102,7 @@ h1:hover {
 }
 
 blockquote {
-  margin: 0;
+  margin: 0 auto;
   font-size: 7rem;
 }
 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Back to the future: of web development | @una</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios,arrow_forward_ios" /> 
 </head>
 <body>
     <div class="title fun-font">Back to the future: of web development</div>
@@ -19,12 +19,24 @@
                   <p class="intro fun-font">Una Kravets <span class="red">&hearts;</span> una.im <br> Google Chrome DevRel</p>
               </div>
 
+              <div class="slide center">
+                <h1 style="font-size: 300px">I &hearts; CSS</h1>
+              </div>
+
               <div  class="slide center">
-                <blockquote>CSS is getting <strong>much</strong> more powerful & declarative</blockquote>
+                <blockquote>CSS and HTML are getting <strong>much</strong> more powerful & declarative</blockquote>
+              </div>
+
+              <div class="slide">
+                <img src="img/Marty_McFly.webp" alt="" style="position: absolute; left: -15rem; bottom: 0;">
+                 <h2 style="position: absolute;
+    right: 8rem;
+    top: 8rem;">"I'm from the future"</h2>
               </div>
 
               <div  class="slide center">
                 <blockquote style="color: magenta">⚠️ NEW STUFF ⚠️</blockquote>
+                <h2 style="text-wrap: balance">"Roads? Where we're going, we don't need roads."</h2>
               </div>
 
               <div class="slide center">
@@ -58,7 +70,7 @@
           <input type="checkbox" name="demo-2" class="target" />
 <div class="two-by">
 <code style="font-size: 1.5rem" class="html"><pre>&lt;div class="comments"&gt;
-  &lt;a interesttarget="commenters" href="#"&gt;
+  &lt;a interestfor="commenters" href="#"&gt;
     24 comments
   &lt;/a&gt;
 &lt;/div&gt;
@@ -78,26 +90,26 @@
                 <div class="two-by">
                   <div class="code-side">
                     <code class="html" style="font-size: 1.5rem"><pre>&lt;div class="star-rating" data-rating="1.8"&gt;
-    &lt;figure&gt;&lt;/figure&gt;
-  &lt;/div&gt;</pre></code>
-                      <code class="css" style="font-size: 1.3rem"><pre>.star-rating {
-    --percent-fill: calc(attr(data-rating type(<number>)) * 20%);
+  &lt;figure&gt;&lt;/figure&gt;
+&lt;/div&gt;</pre></code>
+                    <code class="css" style="font-size: 1.3rem"><pre>.star-rating {
+  --percent-fill: calc(attr(data-rating type(<number>)) * 20%);
 
-    figure {
-      /*  hard breakpoint gradient background  */
-      background: 
-          linear-gradient(to right, 
-          gold var(--percent-fill), 
-          transparent var(--percent-fill));
+  figure {
+    /*  hard breakpoint gradient background  */
+    background: 
+        linear-gradient(to right, 
+        gold var(--percent-fill), 
+        transparent var(--percent-fill));
 
-      /*  star mask  */
-      mask-image: url('data:image/svg+xml,...');
-    }
+    /*  star mask  */
+    mask-image: url('data:image/svg+xml,...');
+  }
 
-    &::after {
-      content: attr(data-rating);
-    }
-  }</pre></code>
+  &::after {
+    content: attr(data-rating);
+  }
+}</pre></code>
               </div>
 
               <iframe class="mini-phone" src="https://codepen.io/una/debug/MYwaVbE/357a134c0765d7afcf85b301f97e7f60" frameborder="0" ></iframe>
@@ -111,11 +123,6 @@
               <div class="slide center">
                 <blockquote>The best way to <strong>level up</strong> your web development skillset is to know what's possbile with <strong>modern UI capabilities.</strong></blockquote>
               </div>
-
-              <div class="slide center">
-                <a href="#">una.im/io-25</a>
-              </div>
-
 
               <div class="slide center">
                 <h2>Why care about CSS & UI?</h2>
@@ -211,6 +218,312 @@ select::picker(select) {
               </div>
             </div>
 
+            <!-- <div class="slide center">
+              <img src="img/select-on-dark.png" alt="">
+            </div> -->
+
+            <div class="slide center">
+              <style>
+                .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
+    fill: none;
+    stroke-miterlimit: 8;
+    stroke-width: 3px;
+  }
+
+  .cls-2, .cls-3, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
+    stroke-dasharray: 10;
+  }
+
+  .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16 {
+    font-family: AzeretMonoRoman-Medium, 'Azeret Mono';
+    font-size: 26px;
+    font-variation-settings: 'wght' 400;
+    font-weight: 400;
+  }
+
+  .cls-9 {
+    stroke: #a33611;
+  }
+
+  .cls-31 {
+    letter-spacing: 0em;
+  }
+
+  .cls-32 {
+    letter-spacing: 0em;
+  }
+
+  .cls-34 {
+    letter-spacing: 0em;
+  }
+
+  .svg-hover-bg {
+    fill: var(--blog-h2-bg);;
+  }
+
+  .cls-1 {
+    fill: var(--card-over);
+    stroke: var(--card-over);
+  }
+
+  .cls-2 {
+    stroke: var(--svg-blue);
+  }
+
+  .cls-10 {
+    fill: var(--svg-green);
+  }
+
+  .cls-11 {
+    fill: var(--svg-red);
+  }
+
+  .cls-3 {
+    stroke: var(--svg-red);
+  }
+
+  .cls-12 {
+    fill: var(--svg-magenta);
+  }
+
+  .cls-18 {
+    fill: var(--card-over);
+    stroke: var(--card-over);
+  }
+
+  .cls-13 {
+    fill: var(--svg-blue);
+  }
+
+  .cls-14 {
+    fill: var(--svg-l-blue);
+  }
+
+  .cls-4 {
+    stroke-dasharray: 12.14 12.14;
+  }
+
+  .cls-4, .cls-6 {
+    stroke: var(--svg-green);
+  }
+
+  .cls-19 {
+    fill: var(--blog-page-bg);
+    fill: 
+color-mix(in srgb, var(--code-border) 25%, var(--blog-page-bg));
+  }
+
+  .cls-5 {
+    stroke: var(--svg-orange);
+  }
+
+  .cls-21 {
+    fill: var(--blog-h2-bg);
+  }
+
+  .option-text {
+    font-family: system-ui;
+    font-size: 30px;
+  }
+
+  .cls-7 {
+    stroke: var(--svg-magenta);
+  }
+
+  .cls-15 {
+    fill: var(--svg-maroon);
+  }
+
+  .cls-8 {
+    stroke: var(--svg-l-blue);
+  }
+
+  .cls-9 {
+    stroke: var(--svg-maroon);
+  }
+
+  .cls-16 {
+    fill: var(--svg-orange);
+  }
+
+  .svg-tiger-stripe {
+    fill: var(--blog-page-bg);
+  }
+
+  .option-text,
+  .checkmark,
+  .arrow {
+    fill: white
+  }
+
+  .cls-15,
+  .cls-11,
+  .cls-12,
+  .cls-16 {
+    transition: translate 0.5s ease-in-out;
+  }
+
+  @media (max-width: 600px) {
+    .select-svg {
+      width: 140vw;
+      transform: translateX(-44vw);
+    }
+    .cls-15 {
+        translate: 770px 0;
+    }
+    line.cls-9 {
+      transform: scaleX(3);
+      translate: -489px 0;
+    }
+
+    line.cls-7 {
+      transform: scaleX(6.1);
+      translate: -1880px -35px;
+    }
+
+    line.cls-5 {
+      translate: 420px 0;
+    }
+
+    .cls-12 {
+      translate: 777px -30px;
+    }
+
+    .cls-16 {
+      translate: 600px 0;
+    }
+
+    .cls-11 {
+      translate: 0 20px;
+    }
+
+    line.cls-3 {
+      transform-origin: center;
+      rotate: 10deg;
+      translate: -30px -20px;
+    }
+  }
+
+  @media (hover) {
+  svg:has(.code-text:hover) :not(:hover) {
+      opacity: 0.5;
+    }
+
+    svg:has(.cls-11:hover) {
+      .cls-11,
+      .cls-3,
+      .arrow { opacity: 1; }
+    }
+
+    svg:has(.cls-15:hover) {
+      .cls-15,
+      .cls-9,
+      .first-option,
+      .first-option tspan { opacity: 1; }
+    }
+
+    svg:has(.cls-14:hover) {
+      .cls-14 tspan,
+      .cls-8,
+      .checkmark,
+      .svg-hover-bg,
+      .third-option,
+      .third-option tspan { opacity: 1; }
+    }
+
+    svg:has(.cls-16:hover) {
+      .cls-16,
+      .cls-5,
+      .checkmark,
+      .svg-hover-bg,
+      .svg-tiger-stripe,
+      .option-text:not(.first-option),
+      .option-text:not(.first-option) tspan { opacity: 1;}
+    }
+
+    svg:has(.cls-13:hover) {
+      .cls-13,
+      .cls-2,
+      .checkmark,
+      .svg-hover-bg,
+      .svg-tiger-stripe,
+      .cls-18,
+      .option-text:not(.first-option),
+      .option-text:not(.first-option) tspan { opacity: 1;}
+    }
+
+    svg:has(.cls-12:hover) {
+      .cls-12,
+      .cls-7,
+      .checkmark { opacity: 1;}
+    }
+
+    svg:has(.cls-10:hover) {
+      .cls-10,
+      .cls-4,
+      .cls-6,
+      .cls-21,
+      .cls-1,
+      .arrow,
+      .first-option,
+      .first-option tspan { opacity: 1;}
+    }
+  }
+              </style>
+              <svg style="width: 1400px; --svg-maroon: rgb(229, 128, 131);
+    --svg-orange: rgb(255, 199, 149);
+    --svg-magenta: rgb(255, 172, 255);
+    --svg-green: rgb(118, 238, 174);
+    --svg-red: rgb(249, 173, 148);
+    --svg-blue: rgb(141, 186, 255);
+    --svg-l-blue: rgb(141, 247, 255);     --blog-page-bg: #151c19;
+    --blog-h2-bg: #464f4e;
+    --blog-border-color: #40533e;
+    --aside-code-border-color: #2f3834;
+    --aside-bg: #5d755a
+;" class="select-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1287 578.5">
+  <g>
+  </g>
+   <path class="cls-21" d="M440.5,146.5v-40.26c0-18.05,14.69-32.74,32.74-32.74h288.53c18.05,0,32.74,14.69,32.74,32.74v40.26h-354Z"></path>
+  <path class="cls-1" d="M761.76,74c17.78,0,32.24,14.46,32.24,32.24v39.76h-353v-39.76c0-17.78,14.46-32.24,32.24-32.24h288.53M761.76,73h-288.53c-18.36,0-33.24,14.88-33.24,33.24v40.76h355v-40.76c0-18.36-14.88-33.24-33.24-33.24h0Z"></path>
+  <path class="cls-19" d="M440,442h355v40.76c0,18.36-14.88,33.24-33.24,33.24h-288.53c-18.36,0-33.24-14.88-33.24-33.24v-40.76Z"></path>
+  <rect class="cls-19" x="440" y="146" width="355" height="74"></rect>
+  <rect class="svg-hover-bg" x="440" y="220" width="355" height="74"></rect>
+  <rect class="cls-19" x="440" y="294" width="355" height="74"></rect>
+  <rect class="svg-tiger-stripe" x="440" y="368" width="355" height="74"></rect>
+  <path class="cls-18" d="M794,147v335.76c0,17.78-14.46,32.24-32.24,32.24h-288.53c-17.78,0-32.24-14.46-32.24-32.24V147h353M795,146h-355v336.76c0,18.36,14.88,33.24,33.24,33.24h288.53c18.36,0,33.24-14.88,33.24-33.24V146h0Z"></path>
+  <text class="option-text first-option" transform="translate(466.98 123.76)"><tspan x="0" y="0">Option One</tspan></text>
+  <text class="option-text" transform="translate(519.98 195.76)"><tspan x="0" y="0">Option One</tspan></text>
+  <text class="option-text third-option" transform="translate(519.98 266.76)"><tspan x="0" y="0">Option Two</tspan></text>
+  <text class="option-text" transform="translate(519.98 340.76)"><tspan x="0" y="0">Option Three</tspan></text>
+  <text class="option-text" transform="translate(519.98 414.76)"><tspan x="0" y="0">Option Four</tspan></text>
+  <text class="option-text" transform="translate(519.98 488.76)"><tspan x="0" y="0">Option Five</tspan></text>
+  <path class="arrow" d="M731.86,108.11c3.69,3.94,7.38,7.88,11.06,11.82.9.97,1.98,2.52,3.33,2.9,2.75.76,4.42-2.15,3.39-4.42.39.85.98,2.34-.5,3.55l-1.32.77c-1.32.39-2.15-.16-2.78-.68,1.2.98,3.08,1.31,4.24,0,4.36-4.91,8.6-9.92,12.96-14.83,1.08-1.21,1.19-3.05,0-4.24-1.1-1.1-3.16-1.22-4.24,0-4.36,4.91-8.6,9.92-12.96,14.83h4.24c-1.49-1.22-3.71-1.43-4.85.52-.6,1.02-.45,2.06,0,3.06-.17-.36-.45-1.67-.28-2.25l1.38-1.79h0c.77-.1,1.54-.2,2.31-.3.31.05,1.18.56,1.28.74-.02-.03-.05-.05-.08-.08-.1-.12-.22-.23-.33-.35-.59-.63-1.18-1.26-1.76-1.89-3.61-3.87-7.23-7.74-10.85-11.6-2.65-2.82-6.88,1.43-4.24,4.24h0Z"></path>
+  <path class="checkmark" d="M461.52,258.86c3.72,4.1,7.39,8.24,11.11,12.35,1.02,1.12,3.24,1.21,4.24,0,6.59-7.95,12.89-16.14,19.48-24.09,1.03-1.25,1.22-3.02,0-4.24-1.06-1.06-3.2-1.25-4.24,0-6.59,7.95-12.89,16.14-19.48,24.09h4.24c-3.72-4.1-7.39-8.24-11.11-12.35-1.09-1.2-3.14-1.11-4.24,0-1.19,1.19-1.09,3.04,0,4.24h0Z"></path>
+  <path class="cls-4" d="M775.5,159h-315c-27.89,0-50.5-22.61-50.5-50.5s22.61-50.5,50.5-50.5h315c27.89,0,50.5,22.61,50.5,50.5s-22.61,50.5-50.5,50.5Z"></path>
+  <text class="code-text cls-10" transform="translate(869.91 87.65)"><tspan x="0" y="0">&lt;select&gt;</tspan></text>
+  <text class="code-text cls-15" transform="translate(98 116.15)"><tspan x="0" y="0">&lt;selectedcontent&gt;</tspan></text>
+  <text class="code-text cls-13" transform="translate(850.05 332.15)"><tspan x="0" y="0">::picker(select)</tspan></text>
+  <text class="code-text cls-12" transform="translate(67 260.15)"><tspan x="0" y="0">&lt;option&gt;::checkmark</tspan></text>
+  <text class="code-text cls-14" transform="translate(842 260.15)"><tspan x="0" y="0">&lt;option&gt;:checked</tspan></text>
+  <text class="code-text cls-16" transform="translate(250 413.15)"><tspan x="0" y="0">&lt;option&gt;</tspan></text>
+  <circle class="cls-7" cx="479.5" cy="257.5" r="40"></circle>
+  <path class="cls-2" d="M430.34,139h373.33c4.88,0,8.84,3.96,8.84,8.84v345.42c0,20-16.24,36.25-36.25,36.25h-318.51c-20,0-36.25-16.24-36.25-36.25V147.84c0-4.88,3.96-8.84,8.84-8.84Z"></path>
+  <line class="cls-7" x1="397.5" y1="257" x2="440" y2="257"></line>
+  <line class="cls-9" x1="397.5" y1="108" x2="449.5" y2="108.5"></line>
+  <line class="cls-6" x1="829" y1="82.5" x2="863" y2="82.5"></line>
+  <text class="code-text cls-11" transform="translate(852.91 130.65)"><tspan x="0" y="0">&lt;select&gt;::picker-icon</tspan></text>
+  <line class="cls-3" x1="783.5" y1="124.5" x2="846" y2="124.5"></line>
+  <line class="cls-5" x1="394.5" y1="405.5" x2="430.5" y2="405.5"></line>
+  <rect class="cls-5" x="430" y="359.5" width="373" height="92.5"></rect>
+  <rect class="cls-8" x="430" y="211.5" width="373" height="92.5"></rect>
+  <line class="cls-2" x1="812.98" y1="327.23" x2="846.5" y2="327.23"></line>
+  <rect class="cls-9" x="449" y="83" width="244" height="56"></rect>
+  <line class="cls-8" x1="803" y1="253.5" x2="837" y2="253.5"></line>
+  <circle class="cls-3" cx="747.5" cy="107.5" r="40"></circle>
+</svg>
+            </div>
+
             <div class="slide center">
           <div class="two-by">
 <code style="font-size: 1.5rem" class="html"><pre>&lt;select name="version-select" id="version-select"
@@ -232,9 +545,23 @@ select::picker(select) {
           </div>
         </div>
 
+        <div class="slide center">
+          <div class="two-by">
+<code style="font-size: 1.5rem" class="css"><pre>selectedcontent .subtitle,
+selectedcontent .icon {
+  display: none;
+}</pre></code>
+            <iframe class="mini-phone" src="https://codepen.io/una/debug/jEPbZjr/98809ceccc64a8b6e0da7f2597c8931c" frameborder="0" ></iframe>
+          </div>
+        </div>
+
             <div class="slide center">
               <iframe style="width: 1390px;
     height: 780px;"src="https://codepen.io/una/pen/pvJbRBN" frameborder="0"></iframe>
+            </div>
+
+            <div class="slide center">
+              <img style="width: 1000px" src="img/radial-diagram.svg" alt="">
             </div>
 
               <div class="slide center">
@@ -301,8 +628,17 @@ li {
             </div>
 
               <div class="slide center">
-                <a class="link-only" href="#three">Carousel features</a>
+                <a class="link-only" href="#scroll-markers">Carousel scroll-markers</a>
               </div>
+
+              <div class="slide center">
+                <iframe style="width:1300px; height: 780px" src="https://codepen.io/una/debug/pvJbRBN" frameborder="0"></iframe>
+              </div>
+
+              <div class="slide center">
+                TODO: radial menu demo (turned into select) + sibling-index()
+              </div>
+
 
               <!-- Demo 2 -->
               <div class="slide center stop">
@@ -411,8 +747,51 @@ li {
 
             </div>
 
+<div class="slide center">
+              <div class="two-by">
+
+<code class="css"><pre style="font-size: 90%;">[interestfor] {
+  interest-delay-start: 0.3s;
+}
+  
+.parent:has(:interest-source) [interestfor] {
+  interest-delay-start: 0s;
+}</pre>
+</code>
+              <iframe class="mini-phone" src="https://codepen.io/una/debug/LEpwLdN" frameborder="0" ></iframe>
+              </div>
+            </div>
+
+            <div class="slide center">
+                  TODO: Interest invoker intro
+                </div>
+
+            <!-- <slide class="slide center">
+              <p>Protip: finessing delays (Emil Kowalski)</p>
+              <iframe height="600" style="width: 1300px; height: 600px" scrolling="no" title="Popover delay timing in a grouping of action buttons" src="https://codepen.io/una/embed/LEpwLdN?default-tab=css%2Cresult&editable=true&theme-id=36912" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/una/pen/LEpwLdN">
+  Popover delay timing in a grouping of action buttons</a> by Una Kravets (<a href="https://codepen.io/una">@una</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+            </slide> -->
+
             <div class="slide center">
               <iframe style="width:1300px; height: 780px" src="https://codepen.io/una/pen/JoooGBo" frameborder="0"></iframe>
+            </div>
+
+            <div class="slide center">
+              <p><code>[interestfor]</code> Polyfill</p>
+              <div>
+                <code style="display: block; margin-bottom: 2rem;" class="js"><pre>import interestfor from "https://esm.sh/interestfor";</pre></code>
+                <code style="display: block" class="css"><pre>
+[interestfor] {
+  /*  for polyfill this must be a custom property */
+  --interest-delay-start: 0.1s;
+  --interest-delay-end: 0.1s;
+  interest-delay-start var(--interest-delay-start);
+  interest-delay-end: var(--interest-delay-end);
+}</pre></code>
+              </div>
             </div>
 
               
@@ -425,6 +804,7 @@ li {
               <div class="slide center">
                 <h2>Recipe:</h2>
                 <ol>
+                  <li>Scroll-snapping</li>
                   <li>Scroll buttons</li>
                   <li>Scroll markers</li>
                   <li>Scroll-state queries</li>
@@ -433,12 +813,105 @@ li {
               </div>
 
               <div class="slide center">
+                <h3>CSS Carousels are just fancy scrollers.</h3><br/>
+                <div class="two-by" style="grid-template-columns: 1fr 1fr;
+    align-items: center;">
+                  <code class="html">
+                    <pre>&lt;ul class="carousel"&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</pre>
+                  </code>
+                  <code class="css">
+                  <pre>.carousel {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}</pre>
+                </code>
+                </div>
+              </div>
+              
+              <div class="slide center">
+                <h3 class="rotate-in" style="position: absolute;
+    top: 10rem;
+    right: 6rem;
+    z-index: 1;
+    background: var(--magenta);
+    padding: 0.25rem 1.5rem;
+    transform-origin: right;
+    --angle: 15deg;">Now with buttons!</h3>
+    <div class="highlight-arrows"></div>
+    <div class="buttons-visual">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+                <code class="css">
+                  <pre>.carousel {
+  &::scroll-button(*) {
+    position: fixed;
+    position-anchor: --carousel;
+    font-family: "Material Symbols Outlined";
+  }
+
+  &::scroll-button(right) {
+    position-area: inline-end center;
+    content: "arrow_forward_ios" / "Scroll Right";
+  }
+
+  &::scroll-button(left) {
+    position-area: inline-start center;
+    content: "arrow_back_ios" / "Scroll Left";
+  }
+}</pre>
+                </code>
+              </div>
+
+              <div class="slide center">
+                <div class="highlight-markers"></div>
+                <h3 class="rotate-in" style="position: absolute;
+    top: 11rem;
+    left: 4rem;
+    z-index: 1;
+    background: var(--magenta);
+    padding: 0.25rem 1.5rem;
+    transform-origin: left;
+    --angle: -15deg;">And markers!</h3>
+                <code class="css">
+                  <pre>.carousel {
+  scroll-marker-group: after;
+
+  &::scroll-marker-group {
+    position: fixed;
+    position-anchor: --carousel;
+    display: grid;
+    ...
+  }
+  
+  ::scroll-marker {
+    content: counter(day-num);
+    aspect-ratio: 1 / 1;
+    ...
+  }
+  
+  ::scroll-marker:target-current {
+    transform: translateY(-0.5rem);
+  }</pre>
+                </code>
+              </div>
+
+              <div class="slide center">
+                <a id="scroll-markers"></a>
                 <a>chrome.dev/carousel-configurator</a>
-                <iframe style="color-scheme: dark; width: 900px; height: 600px;" src="https://chrome.dev/carousel-configurator" frameborder="0"></iframe>
+                <iframe style="color-scheme: dark;
+    width: 1300px;
+    height: 650px;
+    margin-top: 2rem;" src="https://chrome.dev/carousel-configurator" frameborder="0"></iframe>
             </div>
 
               <div class="slide center">
-                <iframe style="width:1300px; height: 780px" src="https://codepen.io/una/pen/myJOjQx" frameborder="0"></iframe>
+                <iframe class="mini-phone" style="width:1300px; height: 700px" src="https://codepen.io/una/debug/myJOjQx" frameborder="0"></iframe>
               </div>
 
 <div class="slide center">
@@ -464,16 +937,124 @@ li {
             </div>
 
             <div class="slide center">
-              <iframe style="width:1300px; height: 780px" src="https://codepen.io/una/debug/myJOjQx" frameborder="0"></iframe>
+              <div class="two-by">
+
+<code class="css"><pre>.day-card {
+  & .meta {
+    @container scroll-state(snapped: x) {
+      transform: translateY(0);
+    }
+  }
+}</pre>
+</code>
+              <iframe class="mini-phone resize" src="https://codepen.io/una/debug/myJOjQx/" frameborder="0"></iframe>
+              </div>
             </div>
+
+            <div class="slide center">
+              <div class="two-by">
+
+<code class="css"><pre>::scroll-marker:target-current {
+  anchor-name: --active-target;
+}
+
+.indicator {
+  position-anchor: --active-target;
+  inset: anchor(inside);
+  margin-top: anchor-size();
+  transition: inset 0.5s linear;
+}</pre>
+</code>
+              <iframe class="mini-phone resize" src="https://codepen.io/una/debug/myJOjQx/" frameborder="0"></iframe>
+              </div>
+            </div>
+
+            <div class="slide center">
+              <div class="two-by">
+
+<code class="css"><pre>.follower {
+  /*  anchor the follower element  */
+  position: fixed;
+  position-anchor: --hovered;
+}
+
+.possible-anchor:hover {
+  /*  update the active anchor  */
+  anchor-name: --hovered;
+}</pre>
+</code>
+              <iframe class="mini-phone" src="https://codepen.io/una/debug/ByoRXxa" frameborder="0" ></iframe>
+              </div>
+            </div>
+
+            <div class="slide center">
+              <div class="two-by">
+<div class="p-list">
+  <p>Multi-anchors!</p>
+  <p>1. Dynamic re-targetting for "bubble"</p>
+  <p>2. Ephemeral tooltips using:</p>
+  <p><code>position-area</code></p>
+  <p><code>position-try-fallbacks</code></p>
+  <p><code>popover=hint</code></p>
+  <p><code>[interestfor]</code></p>
+  <p><i style="font-weight: 100; font-size: 90%">(Touch of JS to preserve active state since we're <br> re-anchoring with :hover)</i></p>
+</div>
+              <iframe class="mini-phone" src="https://codepen.io/una/debug/wBMMZvw" frameborder="0" ></iframe>
+              </div>
+            </div>
+
+            <div class="slide center">
+              <iframe class="mini-phone" style="width:1300px; height: 700px" src="https://codepen.io/una/debug/myJOjQx" frameborder="0"></iframe>
+            </div>
+
+            <div class="slide adventure">
+                <div style="display: grid; grid-template-columns: 1fr 200px; justify-items: self-end; justify-self: center;">
+                  <h2 style="font-size: 4rem;">Bonus round...</h2>
+                  <img src="img/delorean.png" alt="">
+                </div>
+                <div class="three-by">
+                  <div class="option">
+                    <a href="https://una.im/5-css-functions/">
+                      <iframe class="mini-phone" src="https://una.im/5-css-functions/" frameborder="0" ></iframe>
+                      <p>CSS Functions</p>
+                    </a>
+                  </div>
+                  <div class="option" style="margin: 0 -7rem">
+                    <a href="https://codepen.io/una/pen/zxvoWZd">
+                      <iframe class="mini-phone" style="aspect-ratio: auto;
+    width: 660px;" src="https://codepen.io/una/debug/zxvoWZd" frameborder="0" ></iframe>
+                      <p>CSS-only scroll-spy</p>
+                    </a>
+                  </div>
+                  <div class="option">
+                    <a href="https://codepen.io/una/pen/ByooKoj">
+                      <iframe class="mini-phone" src="https://codepen.io/una/debug/ByooKoj" frameborder="0" ></iframe>
+                      <p>No-deps morphing UI</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
 
 
 
               <!-- End Demo Bits-->
 
     
-
-
+              <div class="slide center stop">
+                <h1>This entire slide framework is built with Zero JavaScript</h1>
+              </div>
+              
+              <div class="slide center">
+                <ul>
+                  <li><code>&lt;style contenteditable&gt;</code></li>
+                  <li><code>font-family: 'FontWithASyntaxHighlighter'</code></li>
+                  <li><code>::scroll-button(*)</code></li>
+                  <li><code>::scroll-marker</code> & <code>:target-current</code></li>
+                  <li><code>scroll-behavior: smooth</code></li>
+                  <li><code>@container scroll-state(snapped: x) {}</code></li>
+                  <li><code>sibling-index()</code></li>
+                </ul>
+              </div>
 
               <div class="slide center stop">
                 <h1>Do I need to know all the things?</h1>
@@ -536,37 +1117,23 @@ scroll-snap-type: x mandatory;
 
             <div class="slide center">
               <blockquote>Leverage the power of the browser</blockquote>
+              <h2>Write once, works everywhere.</h2>
            </div>
-
-            <div class="slide center">
-              <blockquote>Write once, works everywhere. No download needed.</blockquote>
-            </div>
-
-            <div>
-              -- image from Render ATL page where it makes you download an app for the schedule --
-            </div>
 
             <div class="slide center">
               <blockquote><strong>Raise your expectations</strong> for the web platform.</blockquote>
             </div>
 
-            <div class="slide center">
-              <blockquote>Stay in the know</blockquote>
-              <br>
-              <h2 class="callout-link">web.dev</h2>
-              <h2 class="callout-link">developer.chrome.com</h2>
-            </div>
-
             <div id="slide-end" class="slide at-top">
               <a class="link-only" href="#end" accesskey="0"></a>
-              <h1 style="margin: 2rem auto 10rem;">Thank you for joining me!</h1>
+              <h1 style="margin: 2rem auto 10rem;">Stay in the know 👀</h1>
               <div class="two-by" style="text-align: left; width: 90%; margin: 0 auto; align-items: start; gap: 3rem">
                 <div class="side">
                     <h2 style="border-bottom: 5px solid var(--lavender);     width: max-content;">Personal</h3>
                     <ul class="links end-links">
                     <li>Twitter: <span>@una</span></li>
                     <li>Blusesky: <span>una.im</span></li>
-                    <li>Website: <span>una.im</span> (blog)</li>
+                    <li>Website: <span>una.im</span> (RSS)</li>
                   </ul>
                 </div>
                 <div class="side">

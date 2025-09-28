@@ -30,11 +30,13 @@
   scrollbar-width: none;
   container-type: scroll-state;
   anchor-name: --slides;
+  scroll-behavior: smooth;
 
   &::scroll-button(*) {
     background: none;
     border: none;
-    color: white
+    color: white;
+    font-family: 'Material Symbols Outlined';
   }
 
   &::scroll-button(*):disabled {
@@ -42,11 +44,11 @@
   }
 
   &::scroll-button(left) {
-    content: "⬅" / "Scroll Left";
+    content: "arrow_back_ios" / "Scroll Left";
   }
   
   &::scroll-button(right) {
-    content: "⮕" / "Scroll Right";
+    content: "arrow_forward_ios" / "Scroll Right";
   }
 
   scroll-marker-group: after;
