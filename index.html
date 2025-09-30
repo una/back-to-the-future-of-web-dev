@@ -24,7 +24,7 @@
               </div>
 
               <div  class="slide center">
-                <blockquote>CSS and HTML are getting <strong>much</strong> more powerful & declarative</blockquote>
+                <blockquote>CSS and HTML are getting <strong>much</strong> more powerful</blockquote>
               </div>
 
               <div class="slide">
@@ -93,7 +93,7 @@
   &lt;figure&gt;&lt;/figure&gt;
 &lt;/div&gt;</pre></code>
                     <code class="css" style="font-size: 1.3rem"><pre>.star-rating {
-  --percent-fill: calc(attr(data-rating type(<number>)) * 20%);
+  --percent-fill: calc(attr(data-rating type(&lt;number&gt;)) * 20%);
 
   figure {
     /*  hard breakpoint gradient background  */
@@ -199,7 +199,7 @@
               <div class="slide center">
                 <h2>Recipe:</h2>
                 <ol>
-                  <li>Customizable select menu* <i>(optional)</i></li>
+                  <li>Customizable select menu</li>
                   <li>Scroll-driven animation</li>
                   <li>CSS trigonometric functions</li>
                   <li>Registered custom properties</li>
@@ -210,9 +210,9 @@
               <div class="slide center">
                 <h2>Customizable select</h2>
                 <div class="two-by">
-  <code style="font-size: 1.5rem"><pre>select,
+  <code style="font-size: 2rem"><pre>select,
 select::picker(select) {
-    appearance: base-select;
+  appearance: base-select;
 }</pre></code>
               <iframe class="mini-phone" style="height: 500px; background: white;"  src="https://codepen.io/una/debug/OJegRzB" frameborder="0"></iframe>
               </div>
@@ -561,8 +561,63 @@ selectedcontent .icon {
             </div>
 
             <div class="slide center">
-              <img style="width: 1000px" src="img/radial-diagram.svg" alt="">
+              <div class="two-by">
+                <img style="width: 1000px" src="img/radial-diagram.svg" alt="">
+                <iframe style="margin-top: 8rem;" src="https://codepen.io/una/debug/QwwzdZB" frameborder="0" ></iframe>
+              </div>
             </div>
+
+            <div class="slide center">
+          <div class="two-by">
+<code style="font-size: 1.5rem" class="css"><pre>--rad: calc(var(--btn-size) + var(--gap));
+background-color: var(--bg);
+transform:
+  translateX(calc(cos(var(--a)) * var(--rad)))
+  translateY(calc(sin(var(--a) * -1) * var(--rad)));
+opacity: 0;
+transition: all 0.3s var(--delay) ease;</pre></code>
+            <iframe class="mini-phone" src="https://codepen.io/una/debug/QwwzdZB" frameborder="0" ></iframe>
+          </div>
+        </div>
+
+        <div class="slide center">
+              <code class="css">
+                <pre>.item:nth-child(1) {
+  --bg: pink;
+  --a: 0deg;
+  --delay: 0s;
+}
+
+.item:nth-child(2) {
+  --bg: thistle;
+  --a: 45deg;
+  --delay: 0.1s;
+}
+
+.item:nth-child(3) {
+  --bg:	paleturquoise;
+  --a: 90deg;
+  --delay: 0.2s;
+}
+
+...</pre>
+              </code>
+            </div>
+
+            <div class="slide center">
+          <div class="two-by">
+<code style="font-size: 1.5rem" class="css"><pre>--rad: calc(var(--btn-size) + var(--gap));
+--a: calc((sibling-index() - 1) * 45deg);
+--delay: calc((sibling-index() - 1) * 0.1s);
+background-color: var(--bg);
+transform:
+  translateX(calc(cos(var(--a)) * var(--rad)))
+  translateY(calc(sin(var(--a) * -1) * var(--rad)));
+opacity: 0;
+transition: all 0.3s var(--delay) ease;</pre></code>
+            <iframe class="mini-phone" src="https://codepen.io/una/debug/QwwzdZB" frameborder="0" ></iframe>
+          </div>
+        </div>
 
               <div class="slide center">
                 <h2>Scroll-driven animations</h2>
@@ -635,11 +690,6 @@ li {
                 <iframe style="width:1300px; height: 780px" src="https://codepen.io/una/debug/pvJbRBN" frameborder="0"></iframe>
               </div>
 
-              <div class="slide center">
-                TODO: radial menu demo (turned into select) + sibling-index()
-              </div>
-
-
               <!-- Demo 2 -->
               <div class="slide center stop">
                 <a id="two"></a>
@@ -649,10 +699,10 @@ li {
               <div class="slide center">
                 <h2>Recipe:</h2>
                 <ol>
-                  <li>Popover=hint</li>
-                  <li>Interest invokers</li>
                   <li>Anchor positioning</li>
                   <li>Repositioning logic</li>
+                  <li>Popover=hint</li>
+                  <li>Interest invokers</li>
                 </ol>
               </div>
 
@@ -681,6 +731,10 @@ li {
             <div class="slide center">
               <a>anchor-tool.com</a>
               <iframe style="color-scheme: dark; width: 900px; height: 600px;" src="https://anchor-tool.com" frameborder="0"></iframe>
+            </div>
+
+            <div class="slide center">
+              TODO: Basic popover demo
             </div>
 
             <div class="slide center">
@@ -747,8 +801,38 @@ li {
 
             </div>
 
+            <div class="slide center">
+              <h2>🌶️ Interest Invokers 🌶️</h2>
+            </div>
+
+            <div class="slide center">
+              <div class="two-by">
+
+<code class="html"><pre>&lt;p&gt;Hi! My name is &lt;a href="https://una.im"
+  interestfor="--una"&gt;Una Kravets&lt;/a&gt;.
+I'm a CSS and UI enthusiast...&lt;/p&gt;
+
+&lt;div id="--una" popover="hint"&gt;
+  &lt;header&gt;
+    &lt;picture&gt;
+      &lt;img src="una.jpg" alt="Una"&gt;
+    &lt;/picture&gt;
+    &lt;div&gt;
+      &lt;h2&gt;una&lt;/h2&gt;
+      &lt;a href="https://una.im"&gt;una.im&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;button&gt;Follow&lt;/button&gt;
+  &lt;/header&gt;
+&lt;/div&gt;
+</pre>
+</code>
+              <iframe class="mini-phone" src="https://codepen.io/una/debug/JooENdE" frameborder="0" ></iframe>
+              </div>
+            </div></h2>
+
 <div class="slide center">
               <div class="two-by">
+                <div>
 
 <code class="css"><pre style="font-size: 90%;">[interestfor] {
   interest-delay-start: 0.3s;
@@ -756,27 +840,30 @@ li {
   
 .parent:has(:interest-source) [interestfor] {
   interest-delay-start: 0s;
-}</pre>
+}
+
+</pre>
 </code>
+<p style="text-align: right;
+    max-width: 100%;
+    width: 100%;
+    font-size: 60%;
+    margin: 6rem 0 0;
+}"><i>Protip from Emil Kowalski —></i></p>
+</div>
               <iframe class="mini-phone" src="https://codepen.io/una/debug/LEpwLdN" frameborder="0" ></iframe>
               </div>
             </div>
 
             <div class="slide center">
-                  TODO: Interest invoker intro
-                </div>
-
-            <!-- <slide class="slide center">
-              <p>Protip: finessing delays (Emil Kowalski)</p>
-              <iframe height="600" style="width: 1300px; height: 600px" scrolling="no" title="Popover delay timing in a grouping of action buttons" src="https://codepen.io/una/embed/LEpwLdN?default-tab=css%2Cresult&editable=true&theme-id=36912" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/una/pen/LEpwLdN">
-  Popover delay timing in a grouping of action buttons</a> by Una Kravets (<a href="https://codepen.io/una">@una</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
-            </slide> -->
+              <iframe style="width: 1000px;
+    height: 600px;
+    background: white;
+    border-radius: 1rem;"src="https://codepen.io/una/debug/Eaabmoe" frameborder="0"></iframe>
+            </div>
 
             <div class="slide center">
-              <iframe style="width:1300px; height: 780px" src="https://codepen.io/una/pen/JoooGBo" frameborder="0"></iframe>
+              <iframe style="width:1300px; height: 720px" src="https://codepen.io/una/pen/JoooGBo" frameborder="0"></iframe>
             </div>
 
             <div class="slide center">
@@ -788,7 +875,7 @@ li {
   /*  for polyfill this must be a custom property */
   --interest-delay-start: 0.1s;
   --interest-delay-end: 0.1s;
-  interest-delay-start var(--interest-delay-start);
+  interest-delay-start: var(--interest-delay-start);
   interest-delay-end: var(--interest-delay-end);
 }</pre></code>
               </div>
@@ -1004,10 +1091,87 @@ li {
             </div>
 
             <div class="slide center">
-              <iframe class="mini-phone" style="width:1300px; height: 700px" src="https://codepen.io/una/debug/myJOjQx" frameborder="0"></iframe>
+              <h2>Bring your own scroll markers with <code>scroll-target-group: auto</code></h2>
             </div>
 
-            <div class="slide adventure">
+            <div class="slide center">
+              <div class="two-by">
+                <div><code class="html"><pre>&lt;ul class="parent"&gt;
+  &lt;li&gt;&lt;a href="#intro"&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#one"&gt;Section one&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div id="intro"&gt;Introduction&lt;/div&gt;
+&lt;div id="one"&gt;Section one&lt;/div&gt;</pre>
+</code>
+
+<code class="css" style="margin-top: 2rem">
+  <pre>.parent {
+  scroll-target-group: auto;
+}
+
+:target-current { 
+  /* styles for active anchor */ 
+}</pre>
+</code></div>
+
+              <iframe class="mini-phone" src="https://codepen.io/una/debug/zxvoWZd" frameborder="0" ></iframe>
+              </div>
+            </div>
+
+            <div class="slide center">
+              <iframe class="mini-phone" style="width:1300px; height: 700px" src="https://una.im/scroll-target-group" frameborder="0"></iframe>
+            </div>
+
+            <div class="slide center">
+              <h2>A little smooth scroll never hurt anyone</h2>
+              <code class="css">
+                <pre>html {
+  scroll-behavior: smooth;                  
+}</pre>
+              </code>
+            </div>
+
+            <div class="slide center">
+              <h2>Anyway, there's a lot of new CSS stuff</h2>
+              <ul>
+                <li><code>if()</code></li>
+                <li><code>@function () {}</code></li>
+                <li><code>shape()</code></li>
+                <li><code>Range container queries</code></li>
+                <li><code>VIEW TRANSITIONS</code></li>
+              </ul>
+            </div>
+
+            <div class="slide center hide-code">
+          <input type="checkbox" name="demo-3" class="target" />
+                <div class="two-by">
+                  <div class="code-side">
+                    <code class="css" style="font-size: 1.5rem"><pre>/* Show only one of two */
+#feedback-form, .open #feedback-btn {
+  display: none;
+}
+
+/* Give both the same v-t-name, because */
+/* we want to morph the one into the other */
+#feedback-form, #feedback-btn {
+  view-transition-name: --feedback;
+}
+
+/* Capture the parent as a separate layer, */
+/* so it animates too */
+#parent {
+  view-transition-name: --feedback-parent;
+}
+
+...</pre></code>
+              </div>
+
+              <iframe class="mini-phone" src="https://codepen.io/una/debug/ByooKoj" frameborder="0" ></iframe>
+            </div>
+          </div>
+
+            <!-- <div class="slide adventure">
                 <div style="display: grid; grid-template-columns: 1fr 200px; justify-items: self-end; justify-self: center;">
                   <h2 style="font-size: 4rem;">Bonus round...</h2>
                   <img src="img/delorean.png" alt="">
@@ -1033,7 +1197,7 @@ li {
                     </a>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
 
 
@@ -1148,6 +1312,6 @@ scroll-snap-type: x mandatory;
             </div>
           </div>
       </div>
-    <div class="twitter fun-font">@una</div>
+    <div class="twitter fun-font">@una / una.im</div>
 </body>
 </html>
