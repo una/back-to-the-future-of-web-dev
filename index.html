@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios,arrow_forward_ios" /> 
 </head>
 <body>
-    <div class="title fun-font">Back to the future: of web development</div>
+    <div class="title fun-font"><img src="img/nordicjs.png" style="width: 2.5rem; height: 2.5rem" alt="">Back to the future: of web development</div>
     <div class="slide-container">
           <div class="slides" >
               <div id="intro-1" class="slide center">
@@ -36,7 +36,7 @@
 
               <div  class="slide center">
                 <blockquote style="color: magenta">⚠️ NEW STUFF ⚠️</blockquote>
-                <h2 style="text-wrap: balance">"Roads? Where we're going, we don't need roads."</h2>
+                <h2 style="text-wrap: balance">"Roads? Where we're going, we don't need roads. - Doc"</h2>
               </div>
 
               <div class="slide center">
@@ -92,7 +92,7 @@
                     <code class="html" style="font-size: 1.5rem"><pre>&lt;div class="star-rating" data-rating="1.8"&gt;
   &lt;figure&gt;&lt;/figure&gt;
 &lt;/div&gt;</pre></code>
-                    <code class="css" style="font-size: 1.3rem"><pre>.star-rating {
+                    <code class="css" style="font-size: 1.25rem"><pre>.star-rating {
   --percent-fill: calc(attr(data-rating type(&lt;number&gt;)) * 20%);
 
   figure {
@@ -156,9 +156,9 @@
               <div class="slide center">
                 <h2>Built-in syntax highlighting</h2>
                 <ul>
-                  <li>No heavy libraries</li>
-                  <li>No added span tags</li>
-                  <li>Supports textarea & dynamic editing</li>
+                  <li class="animate-forward">No heavy libraries</li>
+                  <li class="animate-forward">No added span tags</li>
+                  <li class="animate-forward">Supports textarea & dynamic editing</li>
                 </ul>
                 <a href="https://blog.glyphdrawing.club/font-with-built-in-syntax-highlighting/">blog.glyphdrawing.club</a>
               </div>
@@ -409,6 +409,10 @@ color-mix(in srgb, var(--code-border) 25%, var(--blog-page-bg));
       opacity: 0.5;
     }
 
+    svg:has(:hover) {
+      cursor: help;
+    }
+
     svg:has(.cls-11:hover) {
       .cls-11,
       .cls-3,
@@ -557,7 +561,7 @@ selectedcontent .icon {
 
             <div class="slide center">
               <iframe style="width: 1390px;
-    height: 780px;"src="https://codepen.io/una/pen/pvJbRBN" frameborder="0"></iframe>
+    height: 750px;"src="https://codepen.io/una/pen/pvJbRBN" frameborder="0"></iframe>
             </div>
 
             <div class="slide center">
@@ -571,11 +575,10 @@ selectedcontent .icon {
           <div class="two-by">
 <code style="font-size: 1.5rem" class="css"><pre>--rad: calc(var(--btn-size) + var(--gap));
 background-color: var(--bg);
-transform:
-  translateX(calc(cos(var(--a)) * var(--rad)))
-  translateY(calc(sin(var(--a) * -1) * var(--rad)));
-opacity: 0;
-transition: all 0.3s var(--delay) ease;</pre></code>
+transform: translate(
+  calc(cos(var(--angle)) * var(--rad)), /* x */
+  calc(sin(var(--angle)) * var(--rad))); /* y */
+transition: transform 0.3s var(--delay) ease;</pre></code>
             <iframe class="mini-phone" src="https://codepen.io/una/debug/QwwzdZB" frameborder="0" ></iframe>
           </div>
         </div>
@@ -584,19 +587,19 @@ transition: all 0.3s var(--delay) ease;</pre></code>
               <code class="css">
                 <pre>.item:nth-child(1) {
   --bg: pink;
-  --a: 0deg;
+  --angle: 0deg;
   --delay: 0s;
 }
 
 .item:nth-child(2) {
   --bg: thistle;
-  --a: 45deg;
+  --angle: -45deg;
   --delay: 0.1s;
 }
 
 .item:nth-child(3) {
   --bg:	paleturquoise;
-  --a: 90deg;
+  --angle: -90deg;
   --delay: 0.2s;
 }
 
@@ -606,16 +609,40 @@ transition: all 0.3s var(--delay) ease;</pre></code>
 
             <div class="slide center">
           <div class="two-by">
-<code style="font-size: 1.5rem" class="css"><pre>--rad: calc(var(--btn-size) + var(--gap));
---a: calc((sibling-index() - 1) * 45deg);
---delay: calc((sibling-index() - 1) * 0.1s);
-background-color: var(--bg);
-transform:
-  translateX(calc(cos(var(--a)) * var(--rad)))
-  translateY(calc(sin(var(--a) * -1) * var(--rad)));
-opacity: 0;
-transition: all 0.3s var(--delay) ease;</pre></code>
-            <iframe class="mini-phone" src="https://codepen.io/una/debug/QwwzdZB" frameborder="0" ></iframe>
+<code style="font-size: 1.4rem" class="css"><pre>.item {
+  --radius: calc(var(--btn-size) + var(--gap));
+  --angle: calc((sibling-index() - 1) * -45deg);
+  --delay: calc((sibling-index() - 1) * 0.1s);
+  background: hsl(calc(sibling-index() * 40), 70%, 80%);
+  transform:
+    translate(
+      calc(cos(var(--angle)) * var(--radius)),
+      calc(sin(var(--angle)) * var(--radius))
+    );
+  transition: transform 0.3s var(--delay) ease;
+}</pre></code>
+            <iframe class="mini-phone" src="https://codepen.io/una/debug/YPwWLJd" frameborder="0" ></iframe>
+          </div>
+        </div>
+
+        <div class="slide center">
+          <div class="two-by">
+<code style="font-size: 1.4rem" class="css"><pre>@function --radial-coord(--a, --rad) {
+  result: translate(
+    calc(cos(var(--a)) * var(--rad)),
+    calc(sin(var(--a)) * var(--rad))
+  );
+}
+
+.item {
+  --radius: calc(var(--btn-size) + var(--extra-space));
+  --delay: calc((sibling-index() - 1) * 0.1s);
+  --angle: calc((sibling-index() - 1) * -45deg);
+  transform: --radial-coord(var(--angle), var(--radius));
+  background: hsl(calc(sibling-index() * 40), 70%, 80%);
+  transition: transform 0.3s var(--delay) ease;
+}</pre></code>
+            <iframe class="mini-phone" src="https://codepen.io/una/debug/YPwWLJd" frameborder="0" ></iframe>
           </div>
         </div>
 
@@ -710,7 +737,8 @@ li {
                 
                 <div class="two-by"><div style="display: grid; gap: 2rem;">
   <code class="html" style="font-size: 1.5rem"><pre>&lt;button popovertarget="my-tooltip"&gt;
-  &lt;p&gt;?&lt;/p&gt;
+  &lt;p aria-hidden="true"&gt;?&lt;/p&gt;
+  &lt;p class="sr-only"&gt;Open Tooltip&lt;/p&gt;
 &lt;/button&gt;
 
 &lt;div id="my-tooltip" class="tooltip" popover&gt;
@@ -734,7 +762,120 @@ li {
             </div>
 
             <div class="slide center">
-              TODO: Basic popover demo
+                
+                <div class="two-by"><div style="display: grid; gap: 2rem;">
+  <code class="css"><pre style="font-size: 1.5rem;">.tooltip {
+  container-type: anchored;
+  
+  /*  arrow  */
+  &::before {
+    content: '';
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    border-top-color: var(--tooltip-bg);
+    ...
+    
+    @container anchored(fallback: flip-block) {
+      bottom: 100%;
+      top: calc(-2 * var(--spacer));
+      border-top-color: transparent;
+      border-bottom-color: var(--tooltip-bg);
+    }
+  }</pre>
+</code></div>
+              <iframe class="mini-phone" src="https://codepen.io/una/debug/bNEwzrp" frameborder="0"></iframe>
+              </div>
+            </div>
+
+<div class="slide center">
+                
+                <div class="two-by"><div style="display: grid; gap: 2rem;">
+  <code class="html"><pre style="font-size: 1.5rem;"> &lt;!-- Invoker --&gt;
+&lt;button popovertarget="my-tooltip"&gt;
+  &lt;p aria-hidden="true"&gt;?&lt;/p&gt;
+  &lt;p class="sr-only"&gt;Open Tooltip&lt;/p&gt;
+&lt;/button&gt;
+
+&lt;!-- Popover --&gt;
+&lt;div id="my-tooltip" class="tooltip" popover&gt;
+  &lt;p&gt;Lavender and fuchsia danced...&lt;/p&gt;
+&lt;/div></pre>
+</code></div>
+              <iframe class="mini-phone" src="https://codepen.io/una/debug/bNEwzrp" frameborder="0"></iframe>
+              </div>
+            </div>
+
+            <div class="slide center">
+                
+                <div class="two-by"><div style="display: grid; gap: 2rem;">
+  <code class="html"><pre style="font-size: 1.5rem;"> &lt;!-- Invoker --&gt;
+&lt;button interestfor="my-tooltip"&gt;
+  &lt;p aria-hidden="true"&gt;?&lt;/p&gt;
+  &lt;p class="sr-only"&gt;Open Tooltip&lt;/p&gt;
+&lt;/button&gt;
+
+&lt;!-- Popover --&gt;
+&lt;div id="my-tooltip" class="tooltip" popover&gt;
+  &lt;p&gt;Lavender and fuchsia danced...&lt;/p&gt;
+&lt;/div></pre>
+</code></div>
+              <iframe class="mini-phone" src="https://codepen.io/una/debug/qEbaGrM" frameborder="0"></iframe>
+              </div>
+            </div>
+
+            <div class="slide center">
+              <h2>🌶️ Interest Invokers 🌶️</h2>
+            </div>
+
+            <div class="slide center">
+              <div class="two-by">
+
+<code class="html"><pre>&lt;p&gt;Hi! My name is &lt;a href="https://una.im"
+  interestfor="--una"&gt;Una Kravets&lt;/a&gt;.
+I'm a CSS and UI enthusiast...&lt;/p&gt;
+
+&lt;div id="--una" popover="hint"&gt;
+  &lt;header&gt;
+    &lt;picture&gt;
+      &lt;img src="una.jpg" alt="Una"&gt;
+    &lt;/picture&gt;
+    &lt;div&gt;
+      &lt;h2&gt;una&lt;/h2&gt;
+      &lt;a href="https://una.im"&gt;una.im&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;button&gt;Follow&lt;/button&gt;
+  &lt;/header&gt;
+&lt;/div&gt;
+</pre>
+</code>
+              <iframe class="mini-phone" src="https://codepen.io/una/debug/JooENdE" frameborder="0" ></iframe>
+              </div>
+            </div></h2>
+
+<div class="slide center">
+              <div class="two-by">
+                <div>
+
+<code class="css"><pre style="font-size: 90%;">[interestfor] {
+  interest-delay-start: 0.3s;
+}
+  
+.parent:has(:interest-source) [interestfor] {
+  interest-delay-start: 0s;
+}
+
+</pre>
+</code>
+<p style="text-align: right;
+    max-width: 100%;
+    width: 100%;
+    font-size: 60%;
+    margin: 6rem 0 0;
+}"><i>Protip from Emil Kowalski —></i></p>
+</div>
+              <iframe class="mini-phone" src="https://codepen.io/una/debug/LEpwLdN" frameborder="0" ></iframe>
+              </div>
             </div>
 
             <div class="slide center">
@@ -802,60 +943,6 @@ li {
             </div>
 
             <div class="slide center">
-              <h2>🌶️ Interest Invokers 🌶️</h2>
-            </div>
-
-            <div class="slide center">
-              <div class="two-by">
-
-<code class="html"><pre>&lt;p&gt;Hi! My name is &lt;a href="https://una.im"
-  interestfor="--una"&gt;Una Kravets&lt;/a&gt;.
-I'm a CSS and UI enthusiast...&lt;/p&gt;
-
-&lt;div id="--una" popover="hint"&gt;
-  &lt;header&gt;
-    &lt;picture&gt;
-      &lt;img src="una.jpg" alt="Una"&gt;
-    &lt;/picture&gt;
-    &lt;div&gt;
-      &lt;h2&gt;una&lt;/h2&gt;
-      &lt;a href="https://una.im"&gt;una.im&lt;/a&gt;
-    &lt;/div&gt;
-    &lt;button&gt;Follow&lt;/button&gt;
-  &lt;/header&gt;
-&lt;/div&gt;
-</pre>
-</code>
-              <iframe class="mini-phone" src="https://codepen.io/una/debug/JooENdE" frameborder="0" ></iframe>
-              </div>
-            </div></h2>
-
-<div class="slide center">
-              <div class="two-by">
-                <div>
-
-<code class="css"><pre style="font-size: 90%;">[interestfor] {
-  interest-delay-start: 0.3s;
-}
-  
-.parent:has(:interest-source) [interestfor] {
-  interest-delay-start: 0s;
-}
-
-</pre>
-</code>
-<p style="text-align: right;
-    max-width: 100%;
-    width: 100%;
-    font-size: 60%;
-    margin: 6rem 0 0;
-}"><i>Protip from Emil Kowalski —></i></p>
-</div>
-              <iframe class="mini-phone" src="https://codepen.io/una/debug/LEpwLdN" frameborder="0" ></iframe>
-              </div>
-            </div>
-
-            <div class="slide center">
               <iframe style="width: 1000px;
     height: 600px;
     background: white;
@@ -863,7 +950,7 @@ I'm a CSS and UI enthusiast...&lt;/p&gt;
             </div>
 
             <div class="slide center">
-              <iframe style="width:1300px; height: 720px" src="https://codepen.io/una/pen/JoooGBo" frameborder="0"></iframe>
+              <iframe style="width:1300px; height: 720px" src="https://codepen.io/una/debug/JoooGBo" frameborder="0"></iframe>
             </div>
 
             <div class="slide center">
@@ -956,6 +1043,7 @@ I'm a CSS and UI enthusiast...&lt;/p&gt;
               </div>
 
               <div class="slide center">
+                <a id="scroll-markers"></a>
                 <div class="highlight-markers"></div>
                 <h3 class="rotate-in" style="position: absolute;
     top: 11rem;
@@ -984,12 +1072,12 @@ I'm a CSS and UI enthusiast...&lt;/p&gt;
   
   ::scroll-marker:target-current {
     transform: translateY(-0.5rem);
-  }</pre>
+  }
+}</pre>
                 </code>
               </div>
 
               <div class="slide center">
-                <a id="scroll-markers"></a>
                 <a>chrome.dev/carousel-configurator</a>
                 <iframe style="color-scheme: dark;
     width: 1300px;
@@ -1026,8 +1114,10 @@ I'm a CSS and UI enthusiast...&lt;/p&gt;
             <div class="slide center">
               <div class="two-by">
 
-<code class="css"><pre>.day-card {
+<code class="css"><pre style="font-size: 1.75rem">.day-card {
   & .meta {
+    transform: translateY(calc(100% - 3rem));
+
     @container scroll-state(snapped: x) {
       transform: translateY(0);
     }
@@ -1091,7 +1181,7 @@ I'm a CSS and UI enthusiast...&lt;/p&gt;
             </div>
 
             <div class="slide center">
-              <h2>Bring your own scroll markers with <code>scroll-target-group: auto</code></h2>
+              <h3 style="max-width: 100%;">Bring your own scroll markers with <br/><code>scroll-target-group: auto</code></h3>
             </div>
 
             <div class="slide center">
@@ -1123,23 +1213,22 @@ I'm a CSS and UI enthusiast...&lt;/p&gt;
               <iframe class="mini-phone" style="width:1300px; height: 700px" src="https://una.im/scroll-target-group" frameborder="0"></iframe>
             </div>
 
-            <div class="slide center">
+            <!-- <div class="slide center">
               <h2>A little smooth scroll never hurt anyone</h2>
               <code class="css">
                 <pre>html {
   scroll-behavior: smooth;                  
 }</pre>
               </code>
-            </div>
+            </div> -->
 
             <div class="slide center">
               <h2>Anyway, there's a lot of new CSS stuff</h2>
               <ul>
-                <li><code>if()</code></li>
-                <li><code>@function () {}</code></li>
-                <li><code>shape()</code></li>
-                <li><code>Range container queries</code></li>
-                <li><code>VIEW TRANSITIONS</code></li>
+                <li class="animate-forward"><code>if()</code></li>
+                <li class="animate-forward"><code>shape()</code></li>
+                <li class="animate-forward"><code>Range container queries</code></li>
+                <li class="animate-forward"><code>VIEW TRANSITIONS</code></li>
               </ul>
             </div>
 
@@ -1210,24 +1299,30 @@ I'm a CSS and UI enthusiast...&lt;/p&gt;
               
               <div class="slide center">
                 <ul>
-                  <li><code>&lt;style contenteditable&gt;</code></li>
-                  <li><code>font-family: 'FontWithASyntaxHighlighter'</code></li>
-                  <li><code>::scroll-button(*)</code></li>
-                  <li><code>::scroll-marker</code> & <code>:target-current</code></li>
-                  <li><code>scroll-behavior: smooth</code></li>
-                  <li><code>@container scroll-state(snapped: x) {}</code></li>
-                  <li><code>sibling-index()</code></li>
+                  <li class="animate-forward"><code>&lt;style contenteditable&gt;</code></li>
+                  <li class="animate-forward"><code>font-family: 'FontWithASyntaxHighlighter'</code></li>
+                  <li class="animate-forward"><code>::scroll-button(*)</code></li>
+                  <li class="animate-forward"><code>::scroll-marker</code> & <code>:target-current</code></li>
+                  <li class="animate-forward"><code>scroll-behavior: smooth</code></li>
+                  <li class="animate-forward"><code>@container scroll-state(snapped: x) {}</code></li>
+                  <li class="animate-forward"><code>sibling-index()</code></li>
                 </ul>
               </div>
 
               <div class="slide center stop">
-                <h1>Do I need to know all the things?</h1>
+                <h1 style="z-index:2">That's a lot of CSS</h1>
+                <img style="position: absolute; bottom: 0; left: 0" src="img/doc-and-marty.webp" alt="">
+              </div>
+
+              <div class="slide center">
+                <h1>Do I need to know <strong>all</strong> the things?</h1>
               </div>
               
 
               <div class="slide center">
                 <h1>Reach for native-first</h1>
                 <h2>universal APIs</h2>
+                <h2>no dependancies</h2>
               </div>
               
               <!-- <div class="slide center">
@@ -1270,9 +1365,9 @@ scroll-snap-type: x mandatory;
                 <blockquote>CSS & HTML work in every framework</blockquote>
               </div> -->
 
-              <div class="slide center">
+              <!-- <div class="slide center">
                 <blockquote>No dependancies</blockquote>
-              </div>
+              </div> -->
 
               
             <div class="slide center">
@@ -1312,6 +1407,6 @@ scroll-snap-type: x mandatory;
             </div>
           </div>
       </div>
-    <div class="twitter fun-font">@una / una.im</div>
+    <div class="twitter fun-font">@una<span style="color:var(--blue)">.im</span></div>
 </body>
 </html>

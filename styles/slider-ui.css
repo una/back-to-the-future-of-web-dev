@@ -15,6 +15,9 @@
   top: 1rem;
   left: 1rem;
   color: white;
+  justify-content: center;
+  display: flex;
+  gap: 1rem;
 }
 
 /* Main slider */
@@ -31,6 +34,7 @@
   container-type: scroll-state;
   anchor-name: --slides;
   scroll-behavior: smooth;
+  margin-top: 2rem;
 
   &::scroll-button(*) {
     background: none;
