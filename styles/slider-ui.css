@@ -34,7 +34,6 @@
   container-type: scroll-state;
   anchor-name: --slides;
   scroll-behavior: smooth;
-  margin-top: 2rem;
 
   &::scroll-button(*) {
     background: none;
