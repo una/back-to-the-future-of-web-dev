@@ -9,6 +9,7 @@
 
 .intro {
   margin-top: 0;
+  color: var(--text-muted);
 }
 
 .code-concept-intro {
@@ -40,7 +41,7 @@
 }
 
 .browser-support:focus-visible {
-  outline: 4px solid var(--magenta);
+  outline: 4px solid var(--theme-3);
   border-radius: 10px;
 }
 
@@ -53,10 +54,11 @@
 }
 
 .snippet {
-  background: var(--lavender-bg);
+  background: var(--bg-light);
   padding: 2rem;
   border-radius: 1rem;
   text-align: left;
+  border: 1px solid var(--code-border);
 }
 
 .myFigure img {
@@ -187,7 +189,7 @@ figure {
 }
 
 .end-links {
-  font-family: 'Londrina Solid', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   text-align: left;
 }
 
@@ -197,7 +199,7 @@ figure {
 } */
 
 .end-links span {
-  color: var(--lime);
+  color: var(--theme-2);
   text-decoration: underline;
   margin-left: 1rem;
 }
@@ -216,10 +218,11 @@ figure {
 .mini-phone {
   width: 450px;
   aspect-ratio: 2 / 3.2;
-  border: 10px solid #454545;
-  outline: 2px solid gray;
+  border: 10px solid #222;
+  outline: 2px solid #333;
   border-radius: 40px;
   justify-self: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
 .mini-phone::before {
@@ -235,8 +238,8 @@ figure {
 }
 
 #intro-1 {
-  background-image: url('../img/intro-bg.jpg');
-  background-size: cover;
+  /* Removed background-image */
+  background: radial-gradient(circle at center, var(--bg-light), var(--bg-dark));
 
   h2 {
     margin: 1rem 0;
@@ -244,12 +247,12 @@ figure {
   }
 
   b {
-    color: var(--magenta);
+    color: var(--theme-3);
   }
 }
 
 .highlight {
-  background: yellow;
+  background: var(--theme-1);
   color: black;
 }
 
@@ -261,7 +264,7 @@ figure {
   position: absolute;
   font-style: italic;
   font-size: 1.5rem;
-  color: var(--lavender);
+  color: var(--text-muted);
 }
 
 @keyframes resizer{
@@ -355,7 +358,7 @@ figure {
   .target {
     width: 2rem;
     height: 2rem;
-    accent-color: magenta;
+    accent-color: var(--theme-3);
     position: absolute;
     top: 1rem;
     left: 1rem;
@@ -379,7 +382,7 @@ figure {
 .check {
     width: 2rem;
     height: 2rem;
-    accent-color: magenta;
+    accent-color: var(--theme-3);
     position: absolute;
     top: 1rem;
     left: 1rem;
@@ -411,6 +414,7 @@ figure {
 table {
   font-size: 1.5rem;
   border-collapse: collapse;
+  color: var(--text-main);
 
   td:first-child {
     text-align: left;
@@ -418,16 +422,17 @@ table {
 
   td, thead th {
     padding: 0.5rem;
-    border: 1px solid dimgray;
+    border: 1px solid var(--code-border);
   }
 
   thead {
-    background-color:#334;
+    background-color: var(--bg-light);
     font-size: 2rem;
+    color: var(--theme-2);
   }
 
   tr:nth-child(even) {
-    background-color: #334;
+    background-color: rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -451,7 +456,8 @@ table {
     left: 5rem;
     top: 40%;
     font-size: 200px;
-    color: var(--lime);
+    color: var(--theme-1);
+    opacity: 0.5;
   }
 
   .right::after {
@@ -460,7 +466,8 @@ table {
     right: 2rem;
     top: 40%;
     font-size: 200px;
-    color: var(--lime);
+    color: var(--theme-1);
+    opacity: 0.5;
   }
 }
 
@@ -487,7 +494,7 @@ bottom);
   margin-left: -1rem;
   animation: pulse 1s ease-out alternate;
   animation-iteration-count: 5;
-  box-shadow: 0px 0px 30px var(--magenta);
+  box-shadow: 0px 0px 30px var(--theme-3);
   display: none;
   pointer-events: none;
 

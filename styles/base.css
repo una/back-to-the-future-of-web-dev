@@ -1,15 +1,27 @@
 :root {
-  --red: rgb(180, 27, 0);
-  --magenta: #ff46ec;
-  --lavender-bg: #ad28ff;
-  --blue-bg: #0680a5;
-  --green-bg: #02830a;
-  --lime: #48faa7;
-  --tomato: rgb(252, 149, 131);
-  --lavender: #e1c1ff;
-  --blue: rgb(135, 193, 212);
-  --code-bg: #3a3f43;
-  --code-border: #4f5e63;
+  --bg-dark: #0a0a0a;
+  --bg-light: #1c1c1c;
+  --text-main: #ffffff;
+  --text-muted: #a0a0a0;
+
+  /* Theme Colors */
+  --theme-1: #00ffa6; /* Green - Content */
+  --theme-2: #29bfff; /* Blue - Transitions */
+  --theme-3: #ff00dd; /* Pink - Personalize */
+
+  /* Mappings for existing vars */
+  --lime: #00ffa6;
+  --blue: #29bfff;
+  --magenta: #ff00dd;
+  --lavender: #d1c4e9;
+  --red: #ff1744;
+  --lavender-bg: #673ab7;
+  --blue-bg: #1565c0;
+  --green-bg: #2e7d32;
+  --tomato: #ff5722;
+  
+  --code-bg: #000000;
+  --code-border: #333333;
 }
 
 * {
@@ -17,15 +29,16 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-weight: 300;
-  background: radial-gradient(in oklch, #065fb6, #f84bff, #1850b4);
+  background: radial-gradient(circle at top right, #1a1a1a, #000000);
   background-size: cover;
   height: 100vh;
   padding: 0;
   margin: 0;
   position: relative;
   font-size: 36px;
+  color: var(--text-main);
 }
 
 code {
@@ -34,43 +47,49 @@ code {
   &.html::before {
     content: 'HTML';
     display: block;
-    font-size: 1.2rem;
-    background: linear-gradient(135deg in oklch, var(--magenta) 20%, var(--blue));
+    font-size: 1rem;
+    background: #e65100;
     position: absolute;
-    color: black;
+    color: white;
     font-family: 'IBM Plex Mono';
-    padding: 0.25rem 0.75rem;
-    border-radius: 0.75rem;
-    top: -1rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    top: -0.8rem;
     right: 1rem;
+    letter-spacing: 1px;
+    font-weight: bold;
   }
 
   &.css::before {
     content: 'CSS';
     display: block;
-    font-size: 1.2rem;
-    background: linear-gradient(45deg in oklab, var(--lime), yellow);
+    font-size: 1rem;
+    background: #0277bd;
     position: absolute;
-    color: black;
+    color: white;
     font-family: 'IBM Plex Mono';
-    padding: 0.25rem 0.75rem;
-    border-radius: 0.75rem;
-    top: -1rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    top: -0.8rem;
     right: 1rem;
+    letter-spacing: 1px;
+    font-weight: bold;
   }
 
   &.js::before {
     content: 'JS';
     display: block;
-    font-size: 1.2rem;
-    background: linear-gradient(15deg in oklab, orange, rgb(245 90 64));
+    font-size: 1rem;
+    background: #fbc02d;
     position: absolute;
     color: black;
     font-family: 'IBM Plex Mono';
-    padding: 0.25rem 0.75rem;
-    border-radius: 0.75rem;
-    top: -1rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    top: -0.8rem;
     right: 1rem;
+    letter-spacing: 1px;
+    font-weight: bold;
   }
 }
 
@@ -81,29 +100,27 @@ pre {
 }
 
 ::selection {
-  background-color: black;
-  text-decoration: underline;
-  text-decoration-thickness: 3px;
-  text-decoration-color: var(--lime);
+  background-color: var(--theme-2);
+  color: white;
 }
 
 h1,
 blockquote {
-  font-family: 'Londrina Solid', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   max-width: 20ch;
   font-size: 8rem;
   line-height: 1.1;
-  color: var(--lime);
-  text-shadow: 0 0 15px blueviolet;
-}
-
-h1:hover {
-  animation: pulse 2s ease infinite forwards;
+  color: var(--theme-1);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 blockquote {
   margin: 0 auto;
-  font-size: 7rem;
+  font-size: 4rem;
+  color: var(--text-main);
+  border-left: 5px solid var(--theme-2);
+  padding-left: 2rem;
 }
 
 code,
@@ -113,13 +130,13 @@ kbd {
   padding: 0 0.5rem;
   border-radius: 10px;
   background: var(--code-bg);
-  border-radius: 0.3em;
-  border: 2px solid var(--code-border);
+  border-radius: 8px;
+  border: 1px solid var(--code-border);
   font-size: 80%;
 }
 
 style:focus-visible {
-  outline: 2px dashed white;
+  outline: 2px dashed var(--theme-1);
 }
 
 @font-face {
@@ -130,69 +147,81 @@ style:focus-visible {
   ;
 }
 
-/* https://blog.glyphdrawing.club/font-with-built-in-syntax-highlighting/ */
-/* https://monaspace.githubnext.com/ */
-/* https://codepen.io/daviddarnes/pen/poXpaLB?editors=1100 */
 code, pre, style.display {
   font-family: "FontWithASyntaxHighlighter", monospace;
 
   &::selection {
-    background-color: black;
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-    text-decoration-color: var(--lime);
+    background-color: var(--theme-2);
   }
 }
 
 a {
-  color: var(--lime);
+  color: var(--theme-2);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+a:hover {
+  border-bottom-color: var(--theme-2);
 }
 
 h2 {
-  font-weight: 400;
+  font-weight: 700;
   margin: 2rem 0;
-  font-family: 'Londrina Solid', sans-serif;
-  font-size: 5rem;
-  color: var(--lavender);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 6rem;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
 }
 
 h2 code {
-  color: white;
-  background: var(--magenta);
+  color: var(--theme-3);
+  background: rgba(255, 64, 129, 0.1);
+  border-color: var(--theme-3);
 }
 
 ul {
   list-style: none;
   padding: 0;
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 ol {
   text-align: left;
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 input[type=checkbox] {
   cursor: pointer;
+  accent-color: var(--theme-1);
 }
 
 iframe {
   width: 100%;
   height: 100%;
+  border-radius: 12px;
+  background: white; /* Ensure iframes have background if transparent */
 }
 
 li.indented {
   font-size: 75%;
   margin-left: 3rem;
+  color: var(--text-muted);
 }
 
 strong {
-  color: var(--magenta);
+  font-weight: 800;
 }
 
 p, h3 {
   max-width: 90%;
   justify-self: center;
+}
+
+h3 {
+  font-size: 2.5rem;
+  color: var(--theme-2);
 }
 
 baseline-status {
@@ -202,4 +231,68 @@ baseline-status {
      + baseline-status {
         margin-top: 1.5rem;
      }
+}
+
+/* Theme Utilities for Slides */
+.theme-1-text { color: var(--theme-1); }
+.theme-2-text { color: var(--theme-2); }
+.theme-3-text { color: var(--theme-3); }
+
+.section-group {
+    display: flex;
+}
+
+.sticky-anchor {
+    position: sticky;
+    left: 2rem;
+    top: 2rem;
+    width: 0;
+    height: 0;
+    z-index: 100;
+    overflow: visible;
+}
+
+.theme-badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: max-content;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'IBM Plex Mono', monospace;
+    animation: badge-fade-on-exit linear both;
+    animation-timeline: view(x);
+    animation-range: exit -20% exit 0%;
+}
+
+/* Fade out badge as section exits viewport (scrolls left) */
+@keyframes badge-fade-on-exit {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.group-theme-1 .theme-badge {
+    background: rgba(0, 230, 118, 0.1);
+    color: var(--theme-1);
+    border: 1px solid var(--theme-1);
+}
+
+.group-theme-2 .theme-badge {
+    background: rgba(41, 121, 255, 0.1);
+    color: var(--theme-2);
+    border: 1px solid var(--theme-2);
+}
+
+.group-theme-3 .theme-badge {
+    background: rgba(245, 0, 87, 0.1);
+    color: var(--theme-3);
+    border: 1px solid var(--theme-3);
 }
