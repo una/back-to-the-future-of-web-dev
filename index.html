@@ -20,11 +20,11 @@
               </div>
 
               <div class="slide center">
-                <p>Image of an elephant</p>
+                <img style="height: 800px" src="img/elephant.png" alt="">
               </div>
 
               <div class="slide center">
-                <h1>AI</h1>
+                <h1 style="font-size:30rem; font-weight: 400">AI</h1>
               </div>
 
               <div class="slide center">
@@ -93,20 +93,188 @@
               <!-- Demo 1 -->
               <div class="slide center bg-theme-1">
                 <a id="one"></a>
-                <h2>Hidey-bar</h2>
+                <h2>Hidey-bar pattern</h2>
               </div>
 
               <div class="slide center">
-                Scroll State Queries
-                <br/><br/>
+                <h2>Scroll State Queries</h2>
                 <script src="https://cdn.jsdelivr.net/npm/baseline-status@1/baseline-status.min.js" type="module"></script>
-                <baseline-status featureId="container-scroll-state-queries"></baseline-status>
+                <baseline-status style="zoom: 1.5" featureId="container-scroll-state-queries"></baseline-status>
 
               </div>
 
-              <div class="slide center">
-                The 4 types of scroll state queries
+              <div class="slide center" id="scroll-state-queries-slide">
+                <h3 id="scroll-state-queries-title" style="cursor: pointer;">Scroll state queries</h3>
+                <div class="two-by" style="grid-template-columns: 1fr 1fr;">
+                  <div class="sq-reveal-item"><code style="margin-bottom: 1rem">scrollable</code>
+                <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes fadeScrollbar {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    @keyframes bounceArrow {
+      0%, 100% { transform: translateY(0); opacity: 0.2; }
+      50% { transform: translateY(5px); opacity: 1; }
+    }
+    .scrollbar { animation: fadeScrollbar 3s infinite ease-in-out; }
+    .indicator { animation: bounceArrow 1.5s infinite ease-in-out; transform-origin: center; }
+  </style>
+  <rect width="300" height="200" fill="#f9f9f9" rx="8"/>
+  <rect x="20" y="20" width="260" height="160" rx="8" fill="#fff" stroke="#ddd" stroke-width="2"/>
+  
+  <rect x="40" y="40" width="180" height="30" rx="4" fill="#e3f2fd"/>
+  <rect x="40" y="80" width="180" height="30" rx="4" fill="#e3f2fd"/>
+  <rect x="40" y="120" width="180" height="30" rx="4" fill="#e3f2fd"/>
+  
+  <rect x="265" y="25" width="8" height="150" rx="4" fill="#f0f0f0"/>
+  <rect class="scrollbar" x="265" y="25" width="8" height="60" rx="4" fill="#bdbdbd"/>
+
+  <g class="indicator">
+    <circle cx="150" cy="165" r="16" fill="#ff9800"/>
+    <path d="M142 162 L150 170 L158 162" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  </g>
+  <text x="150" y="15" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#666">Scrollable Container</text>
+</svg></div>
+                  <div class="sq-reveal-item"><code style="margin-bottom: 1rem">stuck</code>
+                <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes scrollList {
+      0%, 10% { transform: translateY(60px); }
+      40%, 60% { transform: translateY(-120px); }
+      90%, 100% { transform: translateY(60px); }
+    }
+    @keyframes stickHighlight {
+      0%, 10% { transform: translateY(60px); fill: #bbdefb; }
+      16% { transform: translateY(15px); fill: #1976d2; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); }
+      40%, 60% { transform: translateY(15px); fill: #1976d2; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); }
+      84% { transform: translateY(15px); fill: #1976d2; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); }
+      90%, 100% { transform: translateY(60px); fill: #bbdefb; filter: none; }
+    }
+    .normal-item { animation: scrollList 5s infinite linear; }
+    .stuck-item { animation: stickHighlight 5s infinite linear; }
+    text {
+  font-size: 1rem;
+}
+  </style>
+  <rect width="300" height="200" fill="#f9f9f9" rx="8"/>
+  
+  <g class="normal-item">
+    <rect x="50" y="0" width="200" height="40" rx="6" fill="#e0e0e0"/>
+    <rect x="50" y="50" width="200" height="40" rx="6" fill="#e0e0e0"/>
+  </g>
+  
+  <g class="stuck-item">
+    <rect x="50" y="100" width="200" height="40" rx="6"/>
+    <text x="150" y="125" text-anchor="middle" font-family="sans-serif" font-weight="bold" fill="#fff">Sticky Item (Stuck)</text>
+  </g>
+  
+  <g class="normal-item">
+    <rect x="50" y="150" width="200" height="40" rx="6" fill="#e0e0e0"/>
+    <rect x="50" y="200" width="200" height="40" rx="6" fill="#e0e0e0"/>
+    <rect x="50" y="250" width="200" height="40" rx="6" fill="#e0e0e0"/>
+  </g>
+</svg></div><div class="sq-reveal-item"><code style="margin-bottom: 1rem">snapped</code>
+                <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes scrollSnap {
+      0%, 15% { transform: translateX(100px); }
+      30%, 50% { transform: translateX(-40px); }
+      65%, 85% { transform: translateX(-180px); }
+      100% { transform: translateX(100px); }
+    }
+    @keyframes snapCard1 {
+      0%, 15% { transform: scale(1.15); fill: #e91e63; }
+      20%, 100% { transform: scale(1); fill: #f48fb1; }
+    }
+    @keyframes snapCard2 {
+      0%, 20% { transform: scale(1); fill: #f48fb1; }
+      30%, 50% { transform: scale(1.15); fill: #e91e63; }
+      60%, 100% { transform: scale(1); fill: #f48fb1; }
+    }
+    @keyframes snapCard3 {
+      0%, 55% { transform: scale(1); fill: #f48fb1; }
+      65%, 85% { transform: scale(1.15); fill: #e91e63; }
+      95%, 100% { transform: scale(1); fill: #f48fb1; }
+    }
+    .slider { animation: scrollSnap 6s infinite ease-in-out; }
+    .card { stroke: white; stroke-width: 3; }
+    .c1 { animation: snapCard1 6s infinite ease-in-out; transform-origin: 50px 100px; }
+    .c2 { animation: snapCard2 6s infinite ease-in-out; transform-origin: 190px 100px; }
+    .c3 { animation: snapCard3 6s infinite ease-in-out; transform-origin: 330px 100px; }
+  </style>
+  <rect width="300" height="200" fill="#f9f9f9" rx="8"/>
+  
+  <line x1="150" y1="20" x2="150" y2="180" stroke="#ccc" stroke-width="2" stroke-dasharray="6,4"/>
+  
+  <g class="slider">
+    <rect class="card c1" x="10" y="50" width="80" height="100" rx="12"/>
+    <rect class="card c2" x="150" y="50" width="80" height="100" rx="12"/>
+    <rect class="card c3" x="290" y="50" width="80" height="100" rx="12"/>
+  </g>
+  <text x="150" y="18" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#888">Snap Center</text>
+</svg></div>
+<div class="sq-reveal-item"><code style="margin-bottom: 1rem">scrolled</code>
+                <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes contentScroll {
+      0%, 10% { transform: translateY(40px); }
+      40%, 60% { transform: translateY(-80px); }
+      90%, 100% { transform: translateY(40px); }
+    }
+    @keyframes headerScrolled {
+      0%, 15% { fill: #e0e0e0; }
+      25%, 75% { fill: #4caf50; }
+      85%, 100% { fill: #e0e0e0; }
+    }
+    .content { animation: contentScroll 4s infinite ease-in-out; }
+    .header { animation: headerScrolled 4s infinite ease-in-out; }
+    
+  </style>
+  <rect width="300" height="200" fill="#f9f9f9" rx="8"/>
+  <g class="content">
+    <rect x="20" y="20" width="260" height="180" rx="8" fill="#fff" stroke="#ddd" stroke-width="2"/>
+    <rect x="40" y="40" width="220" height="20" rx="4" fill="#eee"/>
+    <rect x="40" y="70" width="150" height="20" rx="4" fill="#eee"/>
+    <rect x="40" y="100" width="220" height="20" rx="4" fill="#eee"/>
+    <rect x="40" y="130" width="180" height="20" rx="4" fill="#eee"/>
+  </g>
+  <rect class="header" x="0" y="0" width="300" height="40" rx="8"/>
+  <text x="150" y="25" text-anchor="middle" font-family="sans-serif" font-weight="bold" fill="#333">Navbar (Scrolled state)</text>
+</svg></div>
+</div>
+                <style>
+                  #scroll-state-queries-slide .sq-reveal-item {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.5s ease, transform 0.5s ease;
+                  }
+                  
+                  #scroll-state-queries-slide .sq-reveal-item.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                  }
+                </style>
+                <script>
+                  (function() {
+                    const title = document.getElementById('scroll-state-queries-title');
+                    const items = document.querySelectorAll('#scroll-state-queries-slide .sq-reveal-item');
+                    let currentIndex = 0;
+                    
+                    title.addEventListener('click', function() {
+                      if (currentIndex < items.length) {
+                        items[currentIndex].classList.add('visible');
+                        currentIndex++;
+                      } else {
+                        // Reset if all items are shown
+                        items.forEach(item => item.classList.remove('visible'));
+                        currentIndex = 0;
+                      }
+                    });
+                  })();
+                </script>
               </div>
+
 
               <!-- <div class="slide center bg-theme-1">
                 <h2>Recipe:</h2>
@@ -137,24 +305,24 @@ header {
             </div>
 
             <div class="slide center">
-              <p>Scroll-driven animation</p>
-              <baseline-status featureId="scroll-driven-animation"></baseline-status>
+              <h2>Scroll-driven animation</h2>
+              <baseline-status style="zoom: 1.5" featureId="scroll-driven-animations"></baseline-status>
             </div>
 
             <div class="slide center">
                 <div class="two-by"><div style="width: 750px;">
   <code class="css" style="font-size: 1.5rem"><pre>.info {
-	animation: adjust-info linear both;
+  animation: adjust-info linear both;
 }
 .info h2 {
-	animation: shrink-name linear both;
+  animation: shrink-name linear both;
 }
 header {
-	animation: add-shadow linear both;
+  animation: add-shadow linear both;
 }
 .info, h2, header, #button-edit, .bg {
-	animation-timeline: scroll();
-	animation-range: 0 150px;
+  animation-timeline: scroll();
+  animation-range: 0 150px;
 }</pre></code>
                 </div>
               <iframe class="mini-phone resize" style="width: 560px;
@@ -168,8 +336,9 @@ header {
             </div>
 
             <div class="slide center">
-              <p>Just landed in Chrome 146:<br/> scroll-triggered animation</p>
-              <baseline-status featureId="scroll-triggered-animation"></baseline-status>
+              <p>Just landed in Chrome 146:</p>
+              <h2>Scroll-triggered animation</h2>
+              <baseline-status style="zoom: 1.5" featureId="scroll-triggered-animation"></baseline-status>
             </div>
 
             <div class="slide center">
@@ -223,7 +392,7 @@ header {
 
             <div class="slide center">
               <a>anchor-tool.com</a>
-              <iframe style="color-scheme: dark; width: 900px; height: 600px;" src="https://anchor-tool.com" frameborder="0"></iframe>
+              <iframe style="color-scheme: dark; width: 900px; height: 600px; background: black;" src="https://anchor-tool.com" frameborder="0"></iframe>
             </div>
 
             <div class="slide center">
@@ -253,13 +422,9 @@ header {
               </div>
             </div>
 
-
             <div class="slide center">
               <p>Coming soon: <code>border-shape</code></p>
-            </div>
-
-            <div class="slide center">
-              <iframe style="width:1300px; height: 720px; color-scheme: dark" src="https://codepen.io/una/debug/RNRQqvN" frameborder="0"></iframe>
+              <iframe style="width:1300px; height: 600px; color-scheme: dark; border: 1px solid violet" src="https://codepen.io/una/debug/RNRQqvN" frameborder="0"></iframe>
             </div>
 
             <div class="slide center">
@@ -617,6 +782,17 @@ I'm a CSS and UI enthusiast...&lt;/p&gt;
               </div>
 
               <div class="slide center">
+                <h2>Some animation tips</h2>
+                <ul style="font-size: 2.5rem">
+                  <li>You always want <i>some</i> visual feedback</li>
+                  <li>Animate from the source (ie. invoker)</li>
+                  <li>Use natural easings (you can approx. physics with <code>linear()</code>)</li>
+                  <li>Interaction triggers user attention</li>
+                  <li>Animating between states = better perceived performance</li>
+                </ul>
+              </div>
+
+              <div class="slide center">
               <div class="two-by">
 
 <code class="css"><pre>::scroll-marker:target-current {
@@ -632,6 +808,11 @@ I'm a CSS and UI enthusiast...&lt;/p&gt;
 </code>
               <iframe class="mini-phone resize" src="https://codepen.io/una/debug/myJOjQx/" frameborder="0"></iframe>
               </div>
+            </div>
+
+            <div class="slide center">
+              <h2>Anchor positioning</h2>
+              <baseline-status style="zoom: 1.5" featureId="anchor-positioning"></baseline-status>
             </div>
 
             <div class="slide center">
@@ -669,7 +850,9 @@ I'm a CSS and UI enthusiast...&lt;/p&gt;
             </div>
 
               <div class="slide center">
-              <h3 style="max-width: 100%;">Bring your own scroll markers with <br/><code>scroll-target-group: auto</code></h3>
+              <p style="margin-bottom: 0">Bring your own scroll markers</p>
+              <h2>scroll-target-group: auto</h2>
+              <baseline-status style="zoom: 1.5" featureId="scroll-target-group"></baseline-status>
             </div>
 
             <div class="slide center">
@@ -851,6 +1034,7 @@ li {
               <!-- Demo 1: Select -->
               <div class="slide center bg-theme-3">
                 <h2>Customizable select</h2>
+                <baseline-status style="zoom: 1.5" featureId="customizable-select"></baseline-status>
               </div>
 
               <!-- <div class="slide center bg-theme-3">
@@ -1216,7 +1400,7 @@ selectedcontent .icon {
           </div>
         </div>
 
-            <div class="slide center">
+            <!-- <div class="slide center">
               <div class="two-by">
                 <img style="width: 1000px" src="img/radial-diagram.svg" alt="">
                 <iframe style="margin-top: 8rem;" src="https://codepen.io/una/debug/QwwzdZB" frameborder="0" ></iframe>
@@ -1296,13 +1480,13 @@ transition: transform 0.3s var(--delay) ease;</pre></code>
 }</pre></code>
             <iframe class="mini-phone" src="https://codepen.io/una/debug/YPwWLJd" frameborder="0" ></iframe>
           </div>
-        </div>
+        </div> -->
 
               </div>
               <!-- End Demo Bits-->
 
     
-              <div class="slide center stop">
+              <!-- <div class="slide center stop">
                 <h1>This entire slide framework is built with Zero JavaScript</h1>
               </div>
               
@@ -1316,96 +1500,43 @@ transition: transform 0.3s var(--delay) ease;</pre></code>
                   <li class="animate-forward"><code>@container scroll-state(snapped: x) {}</code></li>
                   <li class="animate-forward"><code>sibling-index()</code></li>
                 </ul>
-              </div>
+              </div> -->
 
               <div class="slide center stop">
-                <h1 style="z-index:2">That's a lot of CSS</h1>
+                <h1 style="z-index:2">That's a lot of things</h1>
               </div>
 
               <div class="slide center">
                 <h1>Do I need to know <strong>all</strong> the things?</h1>
               </div>
-              
 
               <div class="slide center">
-                <h1>Reach for native-first</h1>
-                <h2>universal APIs</h2>
-                <h2>no dependancies</h2>
-              </div>
-              
-              <!-- <div class="slide center">
-                <a class="link-only" href="#this-prezo" accesskey="8"></a>
-                  <blockquote>🤫 This presentation is fully built with vanilla CSS & HTML*</blockquote>
-                <p>*with some iframes for demos due to laziness</p>
+                <h1>Know what's out there. <span style="color:magenta">Know what to ask for.</span> Reach for native first.</h1>
               </div>
 
-              <div class="slide at-top">
-                <h2 style="font-size: 2.5rem"><code>&lt;style&gt;</code> with <code>display:block</code> and <code>contenteditable</code></h2>
-                <style class="display" style="font-size: 1.5rem; white-space: pre-wrap;" contenteditable>body {
-//
-}</style>
-              </div>
-
-              <div class="slide at-top">
-                <h2 style="font-size: 2.5rem">Smooth scroll with <code>scroll-snap</code></h2>
-                <style class="display" style="white-space: pre-wrap;" contenteditable>.slides {
-scroll-behavior: smooth;
-scroll-snap-type: x mandatory;
-}</style>
-              </div>
-
-              <div class="slide at-top">
-                <a class="link-only" href="#end" accesskey="9"></a>
-                <h2 style="font-size: 2.5rem">Navigation with HTML <code>accesskey</code></h2>
-                <ul style="text-align: left; gap: 1rem; display: grid;">
-                  <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>1</kbd> = Title</li>
-                  <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>2</kbd> = Scroll-driven animations</li>
-                  <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>3</kbd> = Popover API</li>
-                  <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>4</kbd> = Anchor positioning</li>
-                  <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>5</kbd> = select</li>
-                  <li>...</li>
-                  <li><kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>e</kbd> = This slide</li>
-                </ul>
-              </div> -->
-<!-- 
-              <div class="slide center">
-                <h2>Another cool thing...</h2>
-                <blockquote>CSS & HTML work in every framework</blockquote>
-              </div> -->
-
-              <!-- <div class="slide center">
-                <blockquote>No dependancies</blockquote>
-              </div> -->
-
-              
             <div class="slide center">
-                <blockquote>The best way to <strong>level up</strong> your web development skillset is to get good at <strong>CSS and HTML</strong></blockquote>
+              <h1>Raise your expectations</strong> for the web.</h1>
             </div>
 
             <div class="slide center">
-              <blockquote>Leverage the power of the browser</blockquote>
-              <h2>Write once, works everywhere.</h2>
-           </div>
-
-            <div class="slide center">
-              <blockquote><strong>Raise your expectations</strong> for the web platform.</blockquote>
+              <h1>We have the tools.</h1>
             </div>
 
             <div id="slide-end" class="slide at-top">
               <a class="link-only" href="#end" accesskey="0"></a>
-              <h1 style="margin: 2rem auto 10rem;">Stay in the know 👀</h1>
+              <h2 style="margin: 2rem auto 10rem;">Stay in the know 👀</h2>
               <div class="two-by" style="text-align: left; width: 90%; margin: 0 auto; align-items: start; gap: 3rem">
                 <div class="side">
-                    <h2 style="border-bottom: 5px solid var(--lavender);     width: max-content;">Personal</h3>
-                    <ul class="links end-links">
+                    <p style="border-bottom: 5px solid var(--lavender); text-align: left; width: 100% ">Personal</p>
+                    <ul class="links end-links" style="font-size: 2.5rem;">
                     <li>Twitter: <span>@una</span></li>
                     <li>Blusesky: <span>una.im</span></li>
                     <li>Website: <span>una.im</span> (RSS)</li>
                   </ul>
                 </div>
                 <div class="side">
-                  <h2 style="border-bottom: 5px solid var(--lavender);     width: max-content;">Chrome DevRel</h3>
-                  <ul class="links end-links">
+                  <p style="border-bottom: 5px solid var(--lavender); text-align: left; width: 100%">Chrome DevRel</p>
+                  <ul class="links end-links" style="font-size: 2.5rem;">
                     <li>New: <span>developer.chrome.com</span></li>
                     <li>Stable features: <span>web.dev</span></li>
                   </ul>
