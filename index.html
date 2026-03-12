@@ -1024,16 +1024,62 @@ li {
               </div>
 
               <div class="slide center">
-                TODO: light-dark() demo
+                <style contenteditable style="display: block;
+    white-space: pre;
+    text-align: left;
+    font-size: 2.5rem;
+    padding: 2rem;
+    border: 1px solid lightgray;
+    background: #3c3a45;
+    border-radius: 4rem;
+    corner-shape: squircle; width: 900px;">body {
+  color-scheme: dark;
+  background: light-dark(lightpink, black);
+}
+
+.title {
+  color: light-dark(purple, white);
+  font-weight: light-dark(700, 400);
+}</style>
               </div>
 
               <div class="slide center">
-                TODO: light-dark() with CSS functions demo (introduct @function in CSS)
+                <style contenteditable style="display: block;
+    white-space: pre;
+    text-align: left;
+    font-size: 2.5rem;
+    padding: 2rem;
+    border: 1px solid lightgray;
+    background: #3c3a45;
+    border-radius: 4rem;
+    corner-shape: squircle; width: 900px;">/* not a thing */
+
+.title {
+  font-weight: light-dark(700, 400);
+}</style>
+              </div>
+
+              <div class="slide center">
+                Luckily I work with some smart people who found a way around this
+              </div>
+
+                <div class="slide center">
+                <h2>CSS custom functions (<code>@function</code>)</h2>
+                <baseline-status style="zoom: 1.5" featureId="css-custom-functions"></baseline-status>
+                </div>
+
+              <div class="slide center">
+                Demo of the code sample for the @function
+              </div>
+
+              <div class="slide center">
+                Demo of the code working for the font-weight change
               </div>
 
               <!-- Demo 1: Select -->
               <div class="slide center bg-theme-3">
                 <h2>Customizable select</h2>
+                <p style="margin-top: -1rem"><i>(No more boring selects)</i></p>
                 <baseline-status style="zoom: 1.5" featureId="customizable-select"></baseline-status>
               </div>
 
@@ -1400,67 +1446,6 @@ selectedcontent .icon {
           </div>
         </div>
 
-            <!-- <div class="slide center">
-              <div class="two-by">
-                <img style="width: 1000px" src="img/radial-diagram.svg" alt="">
-                <iframe style="margin-top: 8rem;" src="https://codepen.io/una/debug/QwwzdZB" frameborder="0" ></iframe>
-              </div>
-            </div>
-
-            <div class="slide center">
-          <div class="two-by">
-<code style="font-size: 1.5rem" class="css"><pre>--rad: calc(var(--btn-size) + var(--gap));
-background-color: var(--bg);
-transform: translate(
-  calc(cos(var(--angle)) * var(--rad)), /* x */
-  calc(sin(var(--angle)) * var(--rad))); /* y */
-transition: transform 0.3s var(--delay) ease;</pre></code>
-            <iframe class="mini-phone" src="https://codepen.io/una/debug/QwwzdZB" frameborder="0" ></iframe>
-          </div>
-        </div>
-
-        <div class="slide center">
-              <code class="css">
-                <pre>.item:nth-child(1) {
-  --bg: pink;
-  --angle: 0deg;
-  --delay: 0s;
-}
-
-.item:nth-child(2) {
-  --bg: thistle;
-  --angle: -45deg;
-  --delay: 0.1s;
-}
-
-.item:nth-child(3) {
-  --bg:	paleturquoise;
-  --angle: -90deg;
-  --delay: 0.2s;
-}
-
-...</pre>
-              </code>
-            </div>
-
-            <div class="slide center">
-          <div class="two-by">
-<code style="font-size: 1.4rem" class="css"><pre>.item {
-  --radius: calc(var(--btn-size) + var(--gap));
-  --angle: calc((sibling-index() - 1) * -45deg);
-  --delay: calc((sibling-index() - 1) * 0.1s);
-  background: hsl(calc(sibling-index() * 40), 70%, 80%);
-  transform:
-    translate(
-      calc(cos(var(--angle)) * var(--radius)),
-      calc(sin(var(--angle)) * var(--radius))
-    );
-  transition: transform 0.3s var(--delay) ease;
-}</pre></code>
-            <iframe class="mini-phone" src="https://codepen.io/una/debug/YPwWLJd" frameborder="0" ></iframe>
-          </div>
-        </div>
-
         <div class="slide center">
           <div class="two-by">
 <code style="font-size: 1.4rem" class="css"><pre>@function --radial-coord(--a, --rad) {
@@ -1480,29 +1465,20 @@ transition: transform 0.3s var(--delay) ease;</pre></code>
 }</pre></code>
             <iframe class="mini-phone" src="https://codepen.io/una/debug/YPwWLJd" frameborder="0" ></iframe>
           </div>
-        </div> -->
+        </div> 
 
-              </div>
-              <!-- End Demo Bits-->
-
-    
-              <!-- <div class="slide center stop">
-                <h1>This entire slide framework is built with Zero JavaScript</h1>
               </div>
               
+
               <div class="slide center">
-                <ul>
-                  <li class="animate-forward"><code>&lt;style contenteditable&gt;</code></li>
-                  <li class="animate-forward"><code>font-family: 'FontWithASyntaxHighlighter'</code></li>
-                  <li class="animate-forward"><code>::scroll-button(*)</code></li>
-                  <li class="animate-forward"><code>::scroll-marker</code> & <code>:target-current</code></li>
-                  <li class="animate-forward"><code>scroll-behavior: smooth</code></li>
-                  <li class="animate-forward"><code>@container scroll-state(snapped: x) {}</code></li>
-                  <li class="animate-forward"><code>sibling-index()</code></li>
-                </ul>
-              </div> -->
+                Demo of the cutsomizable select (funny one where you have to shoot the targets)
+              </div>
 
               <div class="slide center stop">
+                These are 3 of the 5 principles we're exploring in a series of UX Best Practices
+              </div>
+
+              <div class="slide center">
                 <h1 style="z-index:2">That's a lot of things</h1>
               </div>
 
