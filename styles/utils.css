@@ -54,6 +54,13 @@
   background-color: var(--blue-bg);
 }
 
+.two-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
 .two-by {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -100,8 +100,8 @@ pre {
 }
 
 ::selection {
-  background-color: var(--theme-2);
-  color: white;
+  background-color: yellow;
+  color: black;
 }
 
 h1,
@@ -113,6 +113,7 @@ blockquote {
   color: var(--theme-1);
   font-weight: 700;
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 blockquote {
@@ -151,7 +152,8 @@ code, pre, style.display {
   font-family: "FontWithASyntaxHighlighter", monospace;
 
   &::selection {
-    background-color: var(--theme-2);
+    background-color: yellow;
+    color: black;
   }
 }
 

@@ -1069,18 +1069,54 @@ li {
                 </div>
 
               <div class="slide center">
-                Demo of the code sample for the @function
+                <div class="two-stack">
+                <code class="css" style="width: 1100px;"><pre>@function --light-dark(--light, --dark) {
+  result: if(
+    style(--scheme: dark): var(--dark); else: var(--light)
+  );
+}
+
+:root {
+   --scheme: light;
+
+  @media (prefers-color-scheme: dark) {
+   --scheme: dark;
+  }
+}</pre></code>
+  <code class="css" style="width: 1100px;"><pre>
+.title {
+  font-weight: --light-dark(700, 400); /* usage */
+}</pre></code>
+  </div>
               </div>
 
               <div class="slide center">
-                Demo of the code working for the font-weight change
+                <h2>@function</h2>
+                <div class="two-by">
+  <code style="font-size: 1.5rem"><pre>@function --light-dark(--light, --dark) {...}
+
+:root {
+  --scheme: light;
+
+  @media (prefers-color-scheme: dark) {
+    --scheme: dark;
+  }
+}
+
+.title {
+  color: light-dark(purple, white);
+  font-weight: --light-dark(700, 400);
+}</pre></code>
+              <iframe class="mini-phone" style="height: 500px; background: white;"  src="https://codepen.io/una/debug/VYKPRrL" frameborder="0"></iframe>
               </div>
+            </div>
 
               <!-- Demo 1: Select -->
               <div class="slide center bg-theme-3">
                 <h2>Customizable select</h2>
                 <p style="margin-top: -1rem"><i>(No more boring selects)</i></p>
                 <baseline-status style="zoom: 1.5" featureId="customizable-select"></baseline-status>
+                <small>Interop 2026 & currently in Safari TP</small>
               </div>
 
               <!-- <div class="slide center bg-theme-3">
@@ -1471,10 +1507,30 @@ selectedcontent .icon {
               
 
               <div class="slide center">
-                Demo of the cutsomizable select (funny one where you have to shoot the targets)
+                <iframe class="mini-phone" style="aspect-ratio: 3 / 2;
+    width: 800px;" src="https://codepen.io/captainbrosset/debug/ZYONReV" frameborder="0"></iframe>
+                <small style="margin-top: 2rem">Created by Patrick Brosset | patrickbrosset.com </small>
+                <small>No JS, fully accessible, keyboard even works!</small>
               </div>
 
+              <div class="slide center">
+                <iframe class="mini-phone" style="aspect-ratio: 3 / 2;
+    width: 800px;" src="https://codepen.io/t_afif/debug/PwGPJOB" frameborder="0"></iframe>
+                <small style="margin-top: 2rem">Created by Temani Afif | css-only.dev </small>
+                <small>No JS, fully accessible, keyboard even works!</small>
+              </div>
+
+  
               <div class="slide center stop">
+                <h2 style="font-size: 6rem; cursor: pointer;">Key UX Principles</h2>
+                <ol id="ux-principles-list">
+                  <li class="theme-1-text"><strong>Reduce Noise</strong></li>
+                  <li class="theme-2-text"><strong>Guide users</strong></li>
+                  <li class="theme-3-text"><strong>Personalize</strong></li>
+                </ol>
+              </div>
+
+              <div class="slide center">
                 These are 3 of the 5 principles we're exploring in a series of UX Best Practices
               </div>
 
