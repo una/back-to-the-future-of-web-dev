@@ -6,12 +6,12 @@
 
   /* Theme Colors */
   --theme-1: #00ffa6; /* Green - Content */
-  --theme-2: #29bfff; /* Blue - Transitions */
+  --theme-2: #6dd3ff; /* Blue - Transitions */
   --theme-3: #ff00dd; /* Pink - Personalize */
 
   /* Mappings for existing vars */
   --lime: #00ffa6;
-  --blue: #29bfff;
+  --blue: #6dd3ff;
   --magenta: #ff00dd;
   --lavender: #d1c4e9;
   --red: #ff1744;
@@ -152,8 +152,9 @@ code, pre, style.display {
   font-family: "FontWithASyntaxHighlighter", monospace;
 
   &::selection {
-    background-color: yellow;
-    color: black;
+    background-color: #555;
+    color: var(--theme-1);
+    text-decoration: underline;
   }
 }
 
@@ -222,13 +223,14 @@ p, h3 {
 }
 
 h3 {
-  font-size: 2.5rem;
-  color: var(--theme-2);
+  font-size: 4rem;
+  color: var(--theme-1);
 }
 
 baseline-status {
     background: var(--code-bg);
     border-color: var(--code-border);
+    margin: 0 auto;
 
      + baseline-status {
         margin-top: 1.5rem;

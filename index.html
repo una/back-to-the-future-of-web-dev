@@ -83,17 +83,21 @@
               <div class="sticky-anchor"><div class="theme-badge">Reduce Noise</div></div>
               <div class="slide center bg-theme-1 stop">
                   <h2 class="theme-1-text">1. Reduce noise</h2>
-                  <p>Maximize content area</p>
+                  <p style="max-width: 100%;">Avoid pop-ups/banners that obscure the screen.</p>
+                  <p style="max-width: 100%;">Eliminate visual clutter and application borders.</p>
+                  <p style="max-width: 100%;">Keeping the interface clean and focused.</p>
               </div>
 
               <div class="slide center">
-                Example here of a bad UX with the top and bottom bar (screencast)
+                <img style="width: 550px" src="img/header-footer-cover.jpg" alt="header and footer cover">
               </div>
 
               <!-- Demo 1 -->
               <div class="slide center bg-theme-1">
                 <a id="one"></a>
-                <h2>Hidey-bar pattern</h2>
+                <p>Hidey-bar pattern</p>
+                <iframe style="    width: 800px;
+    aspect-ratio: 3 / 2;" class="mini-phone resize" src="https://codepen.io/una/debug/xbVoLLO" frameborder="0"></iframe>
               </div>
 
               <div class="slide center">
@@ -104,8 +108,8 @@
               </div>
 
               <div class="slide center" id="scroll-state-queries-slide">
-                <h3 id="scroll-state-queries-title" style="cursor: pointer;">Scroll state queries</h3>
-                <div class="two-by" style="grid-template-columns: 1fr 1fr;">
+                <h3 id="scroll-state-queries-title" style="cursor: pointer; margin-top: 0;">Scroll state queries</h3>
+                <div class="two-by" style="grid-template-columns: repeat(4, 1fr);">
                   <div class="sq-reveal-item"><code style="margin-bottom: 1rem">scrollable</code>
                 <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
   <style>
@@ -287,16 +291,27 @@
 
               <div class="slide center">
                 <div class="two-by"><div style="display: grid; gap: 2rem;">
-  <code class="css" style="font-size: 1.5rem"><pre>html {
+  <code class="css" style="font-size: 1.3rem"><pre>html {
   container-type: scroll-state;
 }
 
-header {
-  position: fixed;
-  transition: translate 0.2s;
+header {  
+  /*  Check if there has been a scroll  */
+  @container (not scroll-state(scrolled: none)) {
+    /* convert to sticky pos & add transition */
+    position: sticky;
+    top: 0;
+    transition: translate 0.3s;
+  }
   
+  /* Hide when you scroll down */
   @container scroll-state(scrolled: bottom) {
     translate: 0 -100%;
+  }
+  
+  /* appear when you scroll back up */
+  @container scroll-state(scrolled: top) {
+    translate: 0 0;
   }
 }</pre></code>
                 </div>
@@ -310,43 +325,45 @@ header {
             </div>
 
             <div class="slide center">
-                <div class="two-by"><div style="width: 750px;">
-  <code class="css" style="font-size: 1.5rem"><pre>.info {
+                <div class="two-by"><div style="width: 650px;">
+  <code class="css" style="font-size: 1.5rem"><pre>.info, h2, header, #button-edit, .bg {
+  animation-timeline: scroll();
+  animation-range: 0 150px;
+}
+
+.info {
   animation: adjust-info linear both;
 }
+
 .info h2 {
   animation: shrink-name linear both;
 }
+
 header {
   animation: add-shadow linear both;
 }
-.info, h2, header, #button-edit, .bg {
-  animation-timeline: scroll();
-  animation-range: 0 150px;
-}</pre></code>
+
+...</pre></code>
                 </div>
-              <iframe class="mini-phone resize" style="width: 560px;
-    aspect-ratio: 2 / 2.5;" src="https://scroll-driven-animations.style/demos/shrinking-header-shadow/css/" frameborder="0"></iframe>
+              <iframe class="mini-phone resize" style="width: 620px;
+    aspect-ratio: 2 / 2.5;
+    margin-left: -10rem;" src="https://scroll-driven-animations.style/demos/shrinking-header-shadow/css/" frameborder="0"></iframe>
               </div>
             </div>
 
             <div class="slide center">
               <video src="assets/headers.mp4" type="video/mp4" controls autoplay loop></video>
-              <small>Demo by <a href="https://x.com/O_Pawica/status/2011093322580852904?s=20" target="_blank" rel="noopener noreferrer">O_Pawica</a></small>
+              <small>Demo by Oskar Pawica | <a href="https://x.com/O_Pawica/status/2011093322580852904?s=20" target="_blank" rel="noopener noreferrer">O_Pawica</a></small>
             </div>
 
             <div class="slide center">
               <p>Just landed in Chrome 146:</p>
-              <h2>Scroll-triggered animation</h2>
-              <baseline-status style="zoom: 1.5" featureId="scroll-triggered-animation"></baseline-status>
+              <h2>Scroll-<span style="color:magenta">triggered</span> animation</h2>
             </div>
 
             <div class="slide center">
-              <iframe height="580" style="width: 1000px;
-    height: 580px;" scrolling="no" title="CSS Scroll-driven animation demo" src="https://codepen.io/una/embed/ZYWPbxG?default-tab=result&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true">
-  See the Pen <a href="https://codepen.io/una/pen/ZYWPbxG">
-  CSS Scroll-driven animation demo</a> by Una Kravets (<a href="https://codepen.io/una">@una</a>)
-  on <a href="https://codepen.io">CodePen</a>.
+
+              <iframe class="mini-phone" style="width: 1000px; height: 700px" src="https://codepen.io/una/debug/ZYWPbxG" frameborder="0"></iframe>
 </iframe>
             </div>
             
@@ -423,12 +440,16 @@ header {
             </div>
 
             <div class="slide center">
-              <p>Coming soon: <code>border-shape</code></p>
-              <iframe style="width:1300px; height: 600px; color-scheme: dark; border: 1px solid violet" src="https://codepen.io/una/debug/RNRQqvN" frameborder="0"></iframe>
+              <p>Just landed in Chrome 147: <code>border-shape</code></p>
+              <iframe style="width:1300px; height: 600px; color-scheme: dark; border: 1px solid violet;" src="https://codepen.io/una/debug/RNRQqvN" frameborder="0"></iframe>
             </div>
 
             <div class="slide center">
-              <iframe style="width:1300px; height: 720px" src="https://codepen.io/una/debug/ByzYMVb" frameborder="0"></iframe>
+              <iframe style="width:1300px; height: 600px; color-scheme: dark; border: 1px solid violet;" src="https://codepen.io/una/debug/bNeLmoZ" frameborder="0"></iframe>
+            </div>
+
+            <div class="slide center">
+              <iframe style="width:1300px; height: 720px; zoom: 2" src="https://codepen.io/una/debug/ByzYMVb" frameborder="0"></iframe>
             </div>
                 
 <div class="slide center">
@@ -467,8 +488,9 @@ header {
             </div>
 
             <div class="slide center">
-              <h2>🌶️ Interest Invokers 🌶️</h2>
-              <h3 style="color: white; font-style: italic">(There is a polyfill for hover and focus!)</h3>
+              <h2>Interest Invokers</h2>
+              <baseline-status style="zoom: 1.5" featureId="interest-invokers"></baseline-status>
+              <small>Polyfill available</small>
             </div>
 
             <div class="slide center">
@@ -587,9 +609,10 @@ I'm a CSS and UI enthusiast...&lt;/p&gt;
 
             <div class="slide center">
               <iframe style="width: 1000px;
-    height: 600px;
-    background: white;
-    border-radius: 1rem;"src="https://codepen.io/una/debug/Eaabmoe" frameborder="0"></iframe>
+    height: 450px;
+    background: none;
+    border-radius: 1rem;
+    scale: 1.1;" src="https://codepen.io/una/debug/Eaabmoe" frameborder="0"></iframe>
             </div>
 
             <!-- <div class="slide center">
@@ -610,168 +633,7 @@ I'm a CSS and UI enthusiast...&lt;/p&gt;
 }</pre></code>
               </div>
             </div>
-
-              <!-- Demo 3: Carousel
-              <div class="slide center stop bg-theme-1">
-                <a id="three"></a>
-                <h2>No-JS Carousel</h2>
-              </div>
-
-              <div class="slide center bg-theme-1">
-                <h2>Recipe:</h2>
-                <ol>
-                  <li>Scroll-snapping</li>
-                  <li>Scroll buttons</li>
-                  <li>Scroll markers</li>
-                  <li>Scroll-state queries</li>
-                  <li>Anchor positioning</li>
-                </ol>
-              </div>
-
-              <div class="slide center">
-                <h3>CSS Carousels are just fancy scrollers.</h3><br/>
-                <div class="two-by" style="grid-template-columns: 1fr 1fr;
-    align-items: center;">
-                  <code class="html">
-                    <pre><ul class="carousel">
-  <li>...</li>
-  <li>...</li>
-  <li>...</li>
-</ul></pre>
-                  </code>
-                  <code class="css">
-                  <pre>.carousel {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-}</pre>
-                </code>
-                </div>
-              </div>
-              
-              <div class="slide center">
-                <h3 class="rotate-in" style="position: absolute;
-    top: 10rem;
-    right: 6rem;
-    z-index: 1;
-    background: var(--magenta);
-    padding: 0.25rem 1.5rem;
-    transform-origin: right;
-    --angle: 15deg;">Now with buttons!</h3>
-    <div class="highlight-arrows"></div>
-    <div class="buttons-visual">
-      <div class="left"></div>
-      <div class="right"></div>
-    </div>
-                <code class="css">
-                  <pre>.carousel {
-  &::scroll-button(*) {
-    position: fixed;
-    position-anchor: --carousel;
-    font-family: "Material Symbols Outlined";
-  }
-
-  &::scroll-button(right) {
-    position-area: inline-end center;
-    content: "arrow_forward_ios" / "Scroll Right";
-  }
-
-  &::scroll-button(left) {
-    position-area: inline-start center;
-    content: "arrow_back_ios" / "Scroll Left";
-  }
-}</pre>
-                </code>
-              </div>
-
-              <div class="slide center">
-                <a id="scroll-markers"></a>
-                <div class="highlight-markers"></div>
-                <h3 class="rotate-in" style="position: absolute;
-    top: 11rem;
-    left: 4rem;
-    z-index: 1;
-    background: var(--magenta);
-    padding: 0.25rem 1.5rem;
-    transform-origin: left;
-    --angle: -15deg;">And markers!</h3>
-                <code class="css">
-                  <pre>.carousel {
-  scroll-marker-group: after;
-
-  &::scroll-marker-group {
-    position: fixed;
-    position-anchor: --carousel;
-    display: grid;
-    ...
-  }
-  
-  ::scroll-marker {
-    content: counter(day-num);
-    aspect-ratio: 1 / 1;
-    ...
-  }
-  
-  ::scroll-marker:target-current {
-    transform: translateY(-0.5rem);
-  }
-}</pre>
-                </code>
-              </div>
-
-              <div class="slide center">
-                <a>chrome.dev/carousel-configurator</a>
-                <iframe style="color-scheme: dark;
-    width: 1300px;
-    height: 650px;
-    margin-top: 2rem;" src="https://chrome.dev/carousel-configurator" frameborder="0"></iframe>
-            </div>
-
-              <div class="slide center">
-                <iframe class="mini-phone" style="width:1300px; height: 700px" src="https://codepen.io/una/debug/myJOjQx" frameborder="0"></iframe>
-              </div>
-
-<div class="slide center">
-                
-                <div class="two-by">
-
-<code class="css"><pre>li {
-  container-type: scroll-state;
-  scroll-snap-align: center;
-  
-  div {
-    scale: 0.8;
-    transition: scale 0.3s ease;
-    
-    @container scroll-state(snapped: x) {
-      scale: 1;
-    }
-  }
-}</pre>
-</code>
-              <iframe class="mini-phone resize" src="https://codepen.io/una/debug/myyxrqw/" frameborder="0"></iframe>
-              </div>
-            </div>
-
-            <div class="slide center">
-              <div class="two-by">
-
-<code class="css"><pre style="font-size: 1.75rem">.day-card {
-  & .meta {
-    transform: translateY(calc(100% - 3rem));
-
-    @container scroll-state(snapped: x) {
-      transform: translateY(0);
-    }
-  }
-}</pre>
-</code>
-              <iframe class="mini-phone resize" src="https://codepen.io/una/debug/myJOjQx/" frameborder="0"></iframe>
-              </div>
-            </div> -->
-            
-
-            </div>
+          </div>
 
             
               <!-- Section 2 -->
@@ -779,6 +641,9 @@ I'm a CSS and UI enthusiast...&lt;/p&gt;
               <div class="sticky-anchor"><div class="theme-badge">Guide Users</div></div>
               <div class="slide center bg-theme-2 stop">
                   <h2 class="theme-2-text">2. Guide users with natural transitions and interactions</h2>
+                  <p>Morphing animations between states</p>
+                  <p>View-transitions between pages</p>
+                  <p>Intentional animations to guide user attention</p>
               </div>
 
               <div class="slide center">
@@ -786,33 +651,98 @@ I'm a CSS and UI enthusiast...&lt;/p&gt;
                 <ul style="font-size: 2.5rem">
                   <li>You always want <i>some</i> visual feedback</li>
                   <li>Animate from the source (ie. invoker)</li>
-                  <li>Use natural easings (you can approx. physics with <code>linear()</code>)</li>
+                  <li>Use natural easings <small>(you can approx. physics with <code>linear()</code>)</small></li>
                   <li>Interaction triggers user attention</li>
-                  <li>Animating between states = better perceived performance</li>
+                  <li>Animate between states for better perceived performance</li>
                 </ul>
               </div>
 
               <div class="slide center">
+                <h3>sibling-index()</h3>
               <div class="two-by">
+<code style="font-size: 1.5rem"><pre>dialog[open] > * {
+  animation: entry-animation 0.6s 
+             var(--subtle-spring) forwards;
+  
+  /* 0.2s delay, then stagger w/sibling-index() */
+  animation-delay: 
+            calc(sibling-index() * 0.05s + 0.2s);
+}</pre></code>
+            <iframe class="mini-phone" style="height: 550px" src="https://codepen.io/una/debug/pvEPBOq" frameborder="0" ></iframe>
+          </div>
+        </div>
 
-<code class="css"><pre>::scroll-marker:target-current {
-  anchor-name: --active-target;
+            <!-- Scroll-driven animations (Moved from above) -->
+              <div class="slide center bg-theme-2">
+                <h3>Scroll-driven animations</h3>
+              <div class="two-by">
+<code style="font-size: 1.5rem"><pre>
+@keyframes appear {
+  from { 
+    opacity: 0;
+    transform: translate(0px, 50px);
+  }
+
+  to {
+    opacity: 1; 
+    transform: translate(0px, 0px);
+  }
 }
 
-.indicator {
+li {
+  animation: appear linear both;
+  animation-timeline: view();
+  animation-range: entry 0 cover 25%;
+}
+</pre></code>
+            <iframe class="mini-phone" style="height: 500px" src="https://codepen.io/una/debug/zYQPQYj" frameborder="0" ></iframe>
+          </div>
+        </div>
+
+        <div class="slide center">
+              <iframe class="mini-phone" style="width:1300px; height: 700px" src="https://una.im/scroll-target-group" frameborder="0"></iframe>
+            </div>
+
+        <div class="slide center">
+              <p style="margin-bottom: 0">Bring your own scroll markers</p>
+              <h2>scroll-target-group: auto</h2>
+              <baseline-status style="zoom: 1.5" featureId="scroll-target-group"></baseline-status>
+            </div>
+
+            <div class="slide center">
+              <div class="two-by">
+                <div><code class="html" style="font-size: 1.5rem"><pre>&lt;ul class="parent">
+  &lt;li&gt;&lt;a href="#intro"&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#one"&gt;Section one&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div id="intro"&gt;Introduction&lt;/div&gt;
+&lt;div id="one"&gt;Section one&lt;/div&gt;</pre>
+                </code>
+
+<code class="css" style="margin-top: 2rem; font-size: 1.5rem">
+  <pre>.parent {
+  scroll-target-group: auto;
+}
+
+a:target-current {
+  /* styles for active TOC link */
+}
+
+.pointer-hand { 
   position-anchor: --active-target;
-  inset: anchor(inside);
-  margin-top: anchor-size();
-  transition: inset 0.5s linear;
 }</pre>
-</code>
-              <iframe class="mini-phone resize" src="https://codepen.io/una/debug/myJOjQx/" frameborder="0"></iframe>
+</code></div>
+
+              <iframe class="mini-phone" src="https://codepen.io/una/debug/zxvoWZd" frameborder="0" ></iframe>
               </div>
             </div>
 
             <div class="slide center">
               <h2>Anchor positioning</h2>
               <baseline-status style="zoom: 1.5" featureId="anchor-positioning"></baseline-status>
+
+              <p>(technically it's in every browser, there are just various compat bugs so its Baseline status is being debated right now)</p>
             </div>
 
             <div class="slide center">
@@ -849,67 +779,7 @@ I'm a CSS and UI enthusiast...&lt;/p&gt;
               </div>
             </div>
 
-              <div class="slide center">
-              <p style="margin-bottom: 0">Bring your own scroll markers</p>
-              <h2>scroll-target-group: auto</h2>
-              <baseline-status style="zoom: 1.5" featureId="scroll-target-group"></baseline-status>
-            </div>
-
-            <div class="slide center">
-              <div class="two-by">
-                <div><code class="html"><pre>&lt;ul class="parent">
-  &lt;li&gt;&lt;a href="#intro"&gt;Introduction&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#one"&gt;Section one&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div id="intro"&gt;Introduction&lt;/div&gt;
-&lt;div id="one"&gt;Section one&lt;/div&gt;</pre>
-                </code>
-
-<code class="css" style="margin-top: 2rem">
-  <pre>.parent {
-  scroll-target-group: auto;
-}
-
-:target-current { 
-  /* styles for active anchor */ 
-}</pre>
-</code></div>
-
-              <iframe class="mini-phone" src="https://codepen.io/una/debug/zxvoWZd" frameborder="0" ></iframe>
-              </div>
-            </div>
-
-            <div class="slide center">
-              <iframe class="mini-phone" style="width:1300px; height: 700px" src="https://una.im/scroll-target-group" frameborder="0"></iframe>
-            </div>
-
-              <!-- Scroll-driven animations (Moved from above) -->
-              <div class="slide center bg-theme-2">
-                <h3>Scroll-driven animations</h3>
-              <div class="two-by">
-<code style="font-size: 1.5rem"><pre>
-@keyframes appear {
-  from { 
-    opacity: 0;
-    transform: translate(0px, 50px);
-  }
-
-  to {
-    opacity: 1; 
-    transform: translate(0px, 0px);
-  }
-}
-
-li {
-  animation: appear linear both;
-  animation-timeline: view();
-  animation-range: entry 0 cover 25%;
-}
-</pre></code>
-            <iframe class="mini-phone" style="height: 500px" src="https://codepen.io/una/debug/zYQPQYj" frameborder="0" ></iframe>
-          </div>
-        </div>
+              
 
             <!-- <div class="slide center">
               <div class="two-by">
@@ -943,15 +813,14 @@ li {
             </div>
 
             <div class="slide center">
-              some inspo examples here
+              Another morphing demo (inspo)
             </div>
 
             <div class="slide center">
-              https://codepen.io/una/pen/jErVgyZ
-            </div>
-
-            <div class="slide center">
-              https://codepen.io/una/pen/qENZXMV/eb317ca78d18d1a32c05840d5749834c
+              <video style="height: 700px" autoplay muted loop controls>
+                <source src="img/morph.mp4" type="video/mp4">
+              </video>
+                <small>@AdityaSur11</small>
             </div>
 
             <div class="slide center">
@@ -985,7 +854,24 @@ li {
            <div class="slide center">
                 <div class="two-by">
                   <div class="code-side">
-                    <code class="css" style="font-size: 1.5rem"><pre>TODO</pre></code>
+                    <code class="css" style="font-size: 1.5rem"><pre>button span {
+  view-transition-name: --icon;
+}
+
+}::view-transition-old(--icon) {
+  animation-name: fade-out;
+}
+
+::view-transition-new(--icon) {
+  animation-name: fade-in;
+  animation-delay: 0.15s;
+}
+
+::view-transition-old(--icon),
+::view-transition-new(--icon) {
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+}</pre></code>
               </div>
 
               <iframe class="mini-phone" src="https://codepen.io/una/debug/vENgQdz" frameborder="0" ></iframe>
@@ -995,19 +881,67 @@ li {
           <div class="slide center">
                 <div class="two-by">
                   <div class="code-side">
-                    <code class="css" style="font-size: 1.5rem"><pre>TODO</pre></code>
+                    <code class="css" style="font-size: 1rem"><pre>:root { --d: 1; } /* 1 = up, -1 = down, toggled in JS */
+
+::view-transition-old(f) {
+  animation: .15s both slide-out;
+
+}
+::view-transition-new(f) {
+  animation: .15s both slide-in;
+}
+
+@keyframes slide-out {
+  to {
+    opacity: 0; transform: translateY(calc(var(--d) * -10px));
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0; transform: translateY(calc(var(--d) * 10px));
+  }
+}
+                    </pre></code>
               </div>
 
               <iframe class="mini-phone" src="https://codepen.io/una/debug/RNRYQyW" frameborder="0" ></iframe>
             </div>
           </div>
 
-          <div class="slide center">
-            Show state changes demo: https://x.com/nitishkmrk/status/2015729639675879668?s=20
+            <div class="slide center">
+                <div class="two-by">
+                  <div class="code-side">
+                    <code class="css" style="font-size: 1.5rem"><pre>:root {
+  --spring-easing: linear(
+    0, 0.006, 0.025 2.8%, 0.101 6.1%, 
+    0.539 15.2%, 0.661 17.8%, 0.869 23.3%, 
+    0.967 27.2%, 0.994 29.4%, 
+    1.01 32.2%, 1.011 35.6%, 1.002 41.7%, 
+    0.996 46.1%, 1.001 54.4%, 1 100%
+  );
+}
+
+.trigger-btn {
+  anchor-name: --morph-trigger;
+  view-transition-name: morph-ui; 
+  ...
+}
+</pre></code>
+              </div>
+
+              <iframe class="mini-phone" src="https://codepen.io/una/debug/jErVgyZ" frameborder="0" ></iframe>
+            </div>
           </div>
 
           <div class="slide center">
-            more examples of morphing buttons showing statefulness
+            <iframe style="width:1300px; height: 700px" src="https://spring-generator.vercel.app/" frameborder="0"></iframe>
+          </div>
+
+            <div class="slide center">
+              <div class="two-by" style="grid-template-columns: 1fr 1fr;">
+            <p>We have scoped view transitions now in Chrome 147+</p>
+            <iframe class="mini-phone" src="https://codepen.io/una/debug/xbEdrVz/5e029a4aaaaa075056ce41e9020c0b7b/" frameborder="0"></iframe></div>
           </div>
 
               </div>
@@ -1016,6 +950,9 @@ li {
               <div class="sticky-anchor"><div class="theme-badge">Personalize</div></div>
               <div class="slide center stop bg-theme-3">
                   <h2 class="theme-3-text">3. Personalize the experience</h2>
+                  <p>Respect user preferences (theming, motion, etc.)</p>
+                  <p>Think about the user's context</p>
+                  <p>Users co-design the experience with you</p>
               </div>
 
               <div class="slide center">
@@ -1060,12 +997,13 @@ li {
               </div>
 
               <div class="slide center">
-                Luckily I work with some smart people who found a way around this
+                <img src="img/bramus.jpg" alt="" style="height: 700px">
+                <small>Luckily I work with some smart people who found a way around this <br>(this is @bramus/@bram.us)</small>
               </div>
 
                 <div class="slide center">
                 <h2>CSS custom functions (<code>@function</code>)</h2>
-                <baseline-status style="zoom: 1.5" featureId="css-custom-functions"></baseline-status>
+                <baseline-status style="zoom: 1.5" featureId="function"></baseline-status>
                 </div>
 
               <div class="slide center">
@@ -1093,23 +1031,59 @@ li {
               <div class="slide center">
                 <h2>@function</h2>
                 <div class="two-by">
-  <code style="font-size: 1.5rem"><pre>@function --light-dark(--light, --dark) {...}
-
-:root {
-  --scheme: light;
-
-  @media (prefers-color-scheme: dark) {
-    --scheme: dark;
-  }
-}
-
-.title {
-  color: light-dark(purple, white);
-  font-weight: --light-dark(700, 400);
-}</pre></code>
+<style contenteditable style="display: block;
+    white-space: pre;
+    text-align: left;
+    padding: 2rem;
+    border: 1px solid lightgray;
+    background: #3c3a45;
+    border-radius: 4rem;
+    corner-shape: squircle;">/* body { color-scheme: dark; } */
+</style>
               <iframe class="mini-phone" style="height: 500px; background: white;"  src="https://codepen.io/una/debug/VYKPRrL" frameborder="0"></iframe>
               </div>
             </div>
+
+            <div class="slide center">
+              <h2>contrast-color()</h2>
+              <baseline-status style="zoom: 1.5" featureId="contrast-color"></baseline-status>
+            </div>
+
+            <div class="slide center">
+              <h2>contrast-color()</h2>
+              <p style="max-width: 100%;">Landed in all stable browsers as of yesterday</p>
+              <baseline-status style="zoom: 1.5" featureId="contrast-color"></baseline-status>
+            </div>
+
+            <div class="slide center">
+              <div class="two-by">
+                <code class="css" style="font-size: 1.5rem"><pre>.button {
+  background: var(--button-bg);
+  color: contrast-color(var(--button-bg));
+}</pre></code>
+              <iframe class="mini-phone" style="height: 500px; background: white;"  src="https://codepen.io/una/debug/azmEogb/e9c827b275197ed3252eea64a6fd09e7" frameborder="0"></iframe>
+            </div>
+            </div>  
+
+            <div class="slide center">
+              <div class="two-by">
+                <code class="css" style="font-size: 1.5rem"><pre>
+.card-title {
+  color: if(
+    style(--contrast-color: white): antiquewhite;
+    else: midnightblue
+  );
+}
+
+.card-label {
+  color: if(
+    style(--contrast-color: white): lemonchiffon;
+    else: indigo
+  );
+}</pre></code>
+              <iframe class="mini-phone" style="height: 600px; background: white;"  src="https://codepen.io/una/debug/ZYpvzgP/cad0ccf229df45a4fef379c5b941ec49" frameborder="0"></iframe>
+            </div>
+            </div>  
 
               <!-- Demo 1: Select -->
               <div class="slide center bg-theme-3">
@@ -1520,9 +1494,13 @@ selectedcontent .icon {
                 <small>No JS, fully accessible, keyboard even works!</small>
               </div>
 
+              <div class="slide center">
+                <h1>Web platform is fun!</h1>
+              </div>
+
   
               <div class="slide center stop">
-                <h2 style="font-size: 6rem; cursor: pointer;">Key UX Principles</h2>
+                <h3 style="font-size: 6rem; cursor: pointer;">Key UX Principles</h3>
                 <ol id="ux-principles-list">
                   <li class="theme-1-text"><strong>Reduce Noise</strong></li>
                   <li class="theme-2-text"><strong>Guide users</strong></li>
@@ -1531,11 +1509,7 @@ selectedcontent .icon {
               </div>
 
               <div class="slide center">
-                These are 3 of the 5 principles we're exploring in a series of UX Best Practices
-              </div>
-
-              <div class="slide center">
-                <h1 style="z-index:2">That's a lot of things</h1>
+                <h3>These are 3 of the 5 principles we're exploring in a set of UX Best Practices</h3>
               </div>
 
               <div class="slide center">
@@ -1554,12 +1528,20 @@ selectedcontent .icon {
               <h1>We have the tools.</h1>
             </div>
 
+            <div class="slide center">
+              <h1>The web is great and it's just getting better.</h1>
+            </div>
+
+            <div class="slide center">
+              <h1>Thank you!</h1>
+            </div>
+
             <div id="slide-end" class="slide at-top">
               <a class="link-only" href="#end" accesskey="0"></a>
-              <h2 style="margin: 2rem auto 10rem;">Stay in the know 👀</h2>
+              <h2 style="margin: 4rem auto 10rem;">Stay in the know 👀</h2>
               <div class="two-by" style="text-align: left; width: 90%; margin: 0 auto; align-items: start; gap: 3rem">
                 <div class="side">
-                    <p style="border-bottom: 5px solid var(--lavender); text-align: left; width: 100% ">Personal</p>
+                    <p style="border-bottom: 5px solid var(--lavender); text-align: left; width: 100%; margin-left: -4rem; ">Personal</p>
                     <ul class="links end-links" style="font-size: 2.5rem;">
                     <li>Twitter: <span>@una</span></li>
                     <li>Blusesky: <span>una.im</span></li>
@@ -1567,7 +1549,7 @@ selectedcontent .icon {
                   </ul>
                 </div>
                 <div class="side">
-                  <p style="border-bottom: 5px solid var(--lavender); text-align: left; width: 100%">Chrome DevRel</p>
+                  <p style="border-bottom: 5px solid var(--lavender); text-align: left; width: 100%; margin-left: -4rem;">Chrome DevRel</p>
                   <ul class="links end-links" style="font-size: 2.5rem;">
                     <li>New: <span>developer.chrome.com</span></li>
                     <li>Stable features: <span>web.dev</span></li>
